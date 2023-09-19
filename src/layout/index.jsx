@@ -1,6 +1,6 @@
 import { UserContext } from "../contexts/UserContext";
 import { NavLink, Outlet } from "react-router-dom";
-// import { Footer } from "../components/Footer";
+import { Footer } from "../components/Footer";
 import { useContext } from "react";
 
 
@@ -12,14 +12,17 @@ export const AppLayout = () =>{
     return (
         <>
         <nav>
-          <p> site +logo name</p>
+            <div className="site-name">
+            Pet-selling 
 
-          <div className="nav-without-logout">
+            </div>
+
+          <div className="nav-without-buttons">
            <NavLink to= "/" id="home-nav" className={handleLinkClassName}>
             Home
            </NavLink>
            |
-              <NavLink to="/search" id="inventory-nav" className={handleLinkClassName}>
+              <NavLink to="/search" id="search-nav" className={handleLinkClassName}>
                 Search by
                 </NavLink>
                 |
@@ -27,7 +30,7 @@ export const AppLayout = () =>{
                     Shop
                 </NavLink>
                 |
-                <NavLink to="/whoAreWe" id="Contact-nav" className={handleLinkClassName}>
+                <NavLink to="/whoAreWe" id="whoAreWe-nav" className={handleLinkClassName}>
                     Who are we
                 </NavLink>
                 </div>
@@ -40,8 +43,8 @@ export const AppLayout = () =>{
             Logout
           </button>
         ) : (
-           < div>
-          <NavLink to="/login" id="Sign-in-Button" className={handleLinkClassName}>
+           < div className="login-reg-button">
+          <NavLink to="/login" id="log-in-Button" className={handleLinkClassName}>
             Login
           </NavLink>
 
@@ -54,7 +57,7 @@ export const AppLayout = () =>{
       </nav>
       <Outlet />
 
-      {/* <Footer/> */}
+      <Footer/>
         </>
     );
 };
