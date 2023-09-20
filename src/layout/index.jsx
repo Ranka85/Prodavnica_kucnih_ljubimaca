@@ -2,6 +2,7 @@ import { UserContext } from "../contexts/UserContext";
 import { NavLink, Outlet } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { useContext } from "react";
+import { SearchDropdownPage } from "../components/SearchDropdown";
 
 
 export const AppLayout = () =>{
@@ -18,13 +19,13 @@ export const AppLayout = () =>{
             </div>
 
           <div className="nav-without-buttons">
+            {/* add search hdropdown */}
+            <SearchDropdownPage />
+
+
            <NavLink to= "/" id="home-nav" className={handleLinkClassName}>
             Home
            </NavLink>
-           |
-              <NavLink to="/search" id="search-nav" className={handleLinkClassName}>
-                Search by
-                </NavLink>
                 |
                 <NavLink to="/shop" id="shop-nav"className={handleLinkClassName}>
                     Shop
