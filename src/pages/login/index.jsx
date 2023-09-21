@@ -2,7 +2,8 @@ import { useContext, useState } from 'react';
 import { authService } from '../../service/auth';
 import { UserContext } from '../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
-
+// import css
+import './loginstyle.css';
 const { getLoggedInUser } = authService;
 
 export const LoginPage = () => {
@@ -35,9 +36,11 @@ export const LoginPage = () => {
 
   return (
     <>
-      <h1 className="text-2xl text-green-500 text-center">Login page</h1>
+   <div className="login-container">
+    <div className="border-div">
+      <h1 className="text-login">Login page</h1>
       <form method="post" onSubmit={handleSubmit}>
-        <div className="flex flex-col gap-4 max-w-lg mx-auto mt-4">
+        <div className="flex">
           <input
             className="rounded-sm px-2"
             type="text"
@@ -56,12 +59,15 @@ export const LoginPage = () => {
           />
         </div>
         <button 
-          className="block px-2 py-1 bg-green-500 rounded-sm text-white mx-auto"
+          className="submit-block"
           type="submit"
         >
           Login
         </button>
       </form>
+      </div>
+
+      </div>
     </>
   );
 };

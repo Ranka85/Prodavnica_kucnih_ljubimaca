@@ -6,6 +6,11 @@ import { LoginPage } from '../pages/login';
 import { RegisterPage } from '../pages/register';
 import { UsersPage } from '../pages/users';
 import { PetsPage } from '../pages/pets';
+import { DogsPage } from '../categories/dogs';
+import { CatsPage } from '../categories/cats';
+import { FishesPage } from '../categories/fishes';
+import { BirdsPage } from '../categories/birds';
+import { RabbitPage } from '../categories/rabbit';
 // import { SearchPage } from '../pages/search';
 
 import { ProtectedRoute, PublicRoute } from './Routes';
@@ -22,7 +27,19 @@ export const appRoutes = [
       },
   
       {
-        path: 'shop', element: <PublicRoute element={<ShopPage />}  /> },
+        path: 'shop',
+        children: [
+
+          {path: '', element:<ShopPage/>},
+          {path: 'dogs', element: <DogsPage/>},
+          {path: 'cats', element: <CatsPage/>, name:"cats"},
+          {path: 'birds', element: <BirdsPage/>},
+          {path: 'fishes', element: <FishesPage/>},
+          {path: 'rabbit', element: <RabbitPage/>},
+
+        ]
+      },
+
       { path: 'whoAreWe', element: <WhoAreWePage /> },
       // {path: 'search', element: <SearchPage/>},
       { path: '*', element: <h1>404 Not found</h1> },
