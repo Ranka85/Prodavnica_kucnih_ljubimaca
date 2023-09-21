@@ -14,7 +14,7 @@ nav{
  .nav-without-buttons{
   background-color: rgb(255, 255, 255);
   margin-top: 20px;
-  margin-left: 35%;
+  margin-left: 25%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,8 +60,8 @@ text-decoration: underline;
 .login-reg-button{
   color: white;
   display: flex;
-  margin-left: 20px;
-  padding-left: 30px;
+  margin-left: 30px;
+  padding-left: 100px;
 
 }
 
@@ -76,8 +76,8 @@ text-decoration: underline;
 }
 
 .looking-for-div{
-  display: flex;
-  align-items: center;
+  display: grid;
+  place-items: center;
   height: 500px;
   background-color: rgb(255, 255, 255);
   background-image: url("https://cdn.pixabay.com/photo/2018/10/01/09/21/pets-3715733_640.jpg");
@@ -218,7 +218,7 @@ text-decoration: underline;
 }
 
 .dropdown-toggle {
-  background-color: lightpink;
+  background-color: lightpink !important;
   color: white;
   border: none;
   border-radius: 5px;
@@ -234,7 +234,7 @@ text-decoration: underline;
 }
 
 .dropdown-items{
-  display: flex;
+  display: flex !important;
   justify-content: center;
   font-weight: bold;
   color: black;
@@ -250,11 +250,17 @@ text-decoration: underline;
 }
 
 
+
+
 .dropdown-menu{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  z-index: 1;
+  width: 200px;
+}
+
+a:hover{
+  color: lightcoral;
+  text-decoration: underline;
+}
+
+a{
+  text-decoration: none;
 }

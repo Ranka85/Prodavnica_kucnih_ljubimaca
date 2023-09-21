@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const SearchDropdownPage = () => {
   return (
-    <Dropdown>
+    <Dropdown id="dropdown-autoclose-true">
       <Dropdown.Toggle variant="success" id="search-nav">
         Search by
       </Dropdown.Toggle>
@@ -21,3 +21,4 @@ export const SearchDropdownPage = () => {
     </Dropdown>
   );
 };
+
