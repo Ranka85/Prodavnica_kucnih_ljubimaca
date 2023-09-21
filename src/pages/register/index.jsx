@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./registerStyle.css"
 
 
 export const RegisterPage=()=> {
@@ -50,12 +51,14 @@ export const RegisterPage=()=> {
   };
 
   return (
-    <div>
-      <h2>Registration Form</h2>
+    <div className='registration-container'>
+      <div className='border-div-reg'>
+      <h2 className='text-register'>Registration Form</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name</label>
+        <div className='registration-flex'>
+          <label htmlFor="name" className='text-reg'>Name</label>
           <input
+            className='registration-rounded'
             type="text"
             id="name"
             name="name"
@@ -64,9 +67,10 @@ export const RegisterPage=()=> {
           />
           {errors.name && <div className="error">{errors.name}</div>}
         </div>
-        <div>
-          <label htmlFor="email">Email</label>
+        <div className='registration-flex'>
+          <label htmlFor="email" className='text-reg'>Email</label>
           <input
+            className='registration-rounded'
             type="email"
             id="email"
             name="email"
@@ -75,9 +79,10 @@ export const RegisterPage=()=> {
           />
           {errors.email && <div className="error">{errors.email}</div>}
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className='registration-flex'>
+          <label htmlFor="password" className='text-reg'>Password</label>
           <input
+          className='registration-rounded'
             type="password"
             id="password"
             name="password"
@@ -86,8 +91,9 @@ export const RegisterPage=()=> {
           />
           {errors.password && <div className="error">{errors.password}</div>}
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" className='registration-submit-block '>Register</button>
       </form>
+      </div>
     </div>
   );
 }

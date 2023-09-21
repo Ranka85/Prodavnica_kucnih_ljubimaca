@@ -7,8 +7,8 @@ import { SearchDropdownPage } from "../components/SearchDropdown";
 
 export const AppLayout = () =>{
     const {user, handlerUserLogout} = useContext(UserContext);
-    const handleLinkClassName = ({ isActive }) =>
-    isActive ? 'text-green-500' : '';
+  
+
 
     return (
         <>
@@ -24,15 +24,15 @@ export const AppLayout = () =>{
             <SearchDropdownPage />
 
 
-           <NavLink to= "/" id="home-nav" className={handleLinkClassName}>
+           <NavLink to= "/" id="home-nav" >
             Home
            </NavLink>
                 |
-                <NavLink to="/shop" id="shop-nav"className={handleLinkClassName}>
+                <NavLink to="/shop" id="shop-nav">
                     Shop
                 </NavLink>
                 |
-                <NavLink to="/whoAreWe" id="whoAreWe-nav" className={handleLinkClassName}>
+                <NavLink to="/whoAreWe" id="whoAreWe-nav" >
                     Who are we
                 </NavLink>
                 </div>
@@ -46,11 +46,11 @@ export const AppLayout = () =>{
           </button>
         ) : (
            < div className="login-reg-button">
-          <NavLink to="/login" id="log-in-Button" className={handleLinkClassName}>
+          <NavLink to="/login" id="log-in-Button">
             Login
           </NavLink>
 
-            <NavLink to="/register" id="Reg-Button" className={handleLinkClassName}>
+            <NavLink to="/register" id="Reg-Button" >
             Register
             </NavLink>
 
