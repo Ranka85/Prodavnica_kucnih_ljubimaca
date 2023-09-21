@@ -4,13 +4,19 @@ import { CatsPage } from "../../categories/cats";
 import { BirdsPage } from "../../categories/birds";
 import { FishesPage } from "../../categories/fishes";
 import { RabbitPage } from "../../categories/rabbit";
-export const HomePage =() =>{
+import { useNavigate } from 'react-router-dom';
 
+export const HomePage = () => {
+    const navigate = useNavigate();
+  
+    const goToShopPage = () => {
+      navigate('/shop');
+    }
     return <>
     <div className="looking-for-div">
         <p className="home-title">what are you looking for? <br />
         
-        <button className="buying-pet-button">buying pet</button>
+        <button className="buying-pet-button" onClick={goToShopPage}>buying pet</button>
         <button className="selling-pet-button">selling pet</button>
         </p>
       

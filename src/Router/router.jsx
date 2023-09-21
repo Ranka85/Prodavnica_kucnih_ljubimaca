@@ -26,13 +26,14 @@ export const appRoutes = [
       { path: 'whoAreWe', element: <WhoAreWePage /> },
       // {path: 'search', element: <SearchPage/>},
       { path: '*', element: <h1>404 Not found</h1> },
+      { path: 'users', element: <UsersPage /> },
+      { path: 'pets', element: <PetsPage /> },
+    
     ],
   },
   { path: 'login', element: <PublicRoute element={<LoginPage />} /> },
   { path: 'register', element: <PublicRoute element={<RegisterPage />} /> },
   { path: '*', element: <h1>404 Not found</h1> },
   // add user and pet pages
-  { path: 'users', element: <UsersPage /> },
-  { path: 'pets', element: <PetsPage /> },
-
+ 
 ];

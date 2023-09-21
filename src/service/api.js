@@ -5,6 +5,8 @@ export const axiosInstance = axios.create({
   timeout: 1000,
   headers: {
     'Content-Type': 'application/json',
+    // "ngrok-skip-browser-warning": true,
+    // 'Accept': 'application/json'
   },
 });
 
