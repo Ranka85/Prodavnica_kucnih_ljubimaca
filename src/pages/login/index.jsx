@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { authService } from '../../service/auth';
 import { UserContext } from '../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import css
 import './loginstyle.css';
 const { getLoggedInUser } = authService;
@@ -65,6 +66,12 @@ export const LoginPage = () => {
           Login
         </button>
       </form>
+      <div className="not-reg">
+      <p>Not registered yet?</p>
+      <Link to="/register/" className='reg-here'>Register here!</Link>
+
+      </div>
+           
       </div>
 
       </div>

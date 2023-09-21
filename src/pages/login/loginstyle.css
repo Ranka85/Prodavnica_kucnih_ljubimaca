@@ -62,3 +62,24 @@
     flex-direction: column;
     justify-content: center;
   }
+  .not-reg{
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .reg-here{
+    color: black;
+    border: 2px solid rgb(223, 133, 148);
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    background-color: lightpink;
+    box-shadow: 1px 0px 0px 2px;
+  }
+
+  .reg-here:hover{
+    background-color: #d4356a;
+    color: white;
+  }

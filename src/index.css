@@ -13,14 +13,14 @@ nav{
  .nav-without-buttons{
   background-color: rgb(255, 255, 255);
   margin-top: 20px;
-  margin-left: 25%;
+  margin-left: 15%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100px;
   padding: 0 10px;
 }
-#search-nav,#shop-nav,#whoAreWe-nav, #home-nav{
+#search-nav,#shop-nav,#whoAreWe-nav, #home-nav,#postNewAd-nav{
   text-decoration: none;
   color: black;
   font-size: 0.9em;
@@ -31,7 +31,7 @@ nav{
   cursor: pointer;
 }
 
-#search-nav:hover,#shop-nav:hover,#whoAreWe-nav:hover, #home-nav:hover{
+#search-nav:hover,#shop-nav:hover,#whoAreWe-nav:hover, #home-nav:hover, #postNewAd-nav:hover{
 text-decoration: underline;
 }
 
@@ -60,34 +60,24 @@ text-decoration: underline;
   color: white;
   display: flex;
   margin-left: 30px;
-  padding-left: 100px;
 
 }
 
 .site-name{
   display: flex;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 1.8em;
   color: lightpink;
   margin-top: 50px;
-  margin-left: 30px;
-
-}
-
-.site-name{
-  display: flex;
-  font-weight: bold;
-  font-size: 2em;
-  color: lightpink;
-  margin-top: 50px;
-  margin-left: 30px;
+  margin-left: 10px;
 
 }
 
 .looking-for-div{
-  display: grid;
+  display: flex;
   place-items: center;
   height: 500px;
+  width: 100%;
   background-color: rgb(255, 255, 255);
   background-image: url("https://cdn.pixabay.com/photo/2018/10/01/09/21/pets-3715733_640.jpg");
   background-repeat: no-repeat;
@@ -98,7 +88,20 @@ text-decoration: underline;
   box-shadow: 0px 0px 5px 0px rgba(212, 134, 134, 0.75);
 }
 
+.container{
+padding: 0;
+margin: 0;
+
+  /* underfl-x: hidden; */
+}
+@media (min-width: 1200px){
+  .container{
+    max-width: 1940px;
+  }
+}
+
 .home-title{
+  
   font-size: 3em;
   font-weight: bold;
   color: black;
@@ -132,12 +135,17 @@ text-decoration: underline;
   margin-left: 30px;
 }
 
+.browse-categories{
+ 
+}
+
+
 .h-browse-cate{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
-  width: 300px;
+  height: 70px;
+  width: 400px;
   margin-left: 40%;
   background-color: lightpink;
   border-radius: 5px;
@@ -337,7 +345,7 @@ a{
 .dogs-shop,
 .cats-shop,
 .birds-shop,
-.fishes-shop,
+.fish-shop,
 .rabbit-shop {
   margin:10px;
 }

@@ -8,10 +8,10 @@ import { UsersPage } from '../pages/users';
 import { PetsPage } from '../pages/pets';
 import { DogsPage } from '../categories/dogs';
 import { CatsPage } from '../categories/cats';
-import { FishesPage } from '../categories/fishes';
+import { FishPage } from '../categories/fish';
 import { BirdsPage } from '../categories/birds';
 import { RabbitPage } from '../categories/rabbit';
-// import { SearchPage } from '../pages/search';
+import { PostNewAdPage } from '../pages/postNewAd';
 
 import { ProtectedRoute, PublicRoute } from './Routes';
 
@@ -34,14 +34,14 @@ export const appRoutes = [
           {path: 'dogs', element: <DogsPage/>},
           {path: 'cats', element: <CatsPage/>, name:"cats"},
           {path: 'birds', element: <BirdsPage/>},
-          {path: 'fishes', element: <FishesPage/>},
+          {path: 'fish', element: <FishPage/>},
           {path: 'rabbit', element: <RabbitPage/>},
 
         ]
       },
 
       { path: 'whoAreWe', element: <WhoAreWePage /> },
-      // {path: 'search', element: <SearchPage/>},
+       { path: 'postNewAd', element:  <ProtectedRoute element={<PostNewAdPage />}/> },
       { path: '*', element: <h1>404 Not found</h1> },
       { path: 'users', element: <UsersPage /> },
       { path: 'pets', element: <PetsPage /> },
@@ -51,6 +51,5 @@ export const appRoutes = [
   { path: 'login', element: <PublicRoute element={<LoginPage />} /> },
   { path: 'register', element: <PublicRoute element={<RegisterPage />} /> },
   { path: '*', element: <h1>404 Not found</h1> },
-  // add user and pet pages
  
 ];

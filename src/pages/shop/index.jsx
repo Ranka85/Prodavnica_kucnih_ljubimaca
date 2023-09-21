@@ -22,9 +22,9 @@ export const ShopPage = () => {
         <p className="pet-text-shop"> birds</p>  </NavLink>
         </div>
 
-        <div className="fishes-shop rab-fish">
-        < NavLink to="/shop/fishes" > <img src="https://i.guim.co.uk/img/media/508a81fbec626742e8417bdf449df106f61538fc/0_452_4300_2580/master/4300.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=01e153091f75c604c08dc099ed08ae5d" alt="" className="fish-img-shop" />
-        <p className="pet-text-shop"> fishes</p>  </NavLink>
+        <div className="fish-shop rab-fish">
+        < NavLink to="/shop/fish" > <img src="https://i.guim.co.uk/img/media/508a81fbec626742e8417bdf449df106f61538fc/0_452_4300_2580/master/4300.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=01e153091f75c604c08dc099ed08ae5d" alt="" className="fish-img-shop" />
+        <p className="pet-text-shop"> fish</p>  </NavLink>
 
         </div>
 

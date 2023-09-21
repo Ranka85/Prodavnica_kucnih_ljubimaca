@@ -35,6 +35,10 @@ export const AppLayout = () =>{
                 <NavLink to="/whoAreWe" id="whoAreWe-nav" >
                     Who are we
                 </NavLink>
+                |
+                <NavLink to="/postNewAd" id="postNewAd-nav">
+                  Post new ad
+                </NavLink>
                 </div>
                 
                 {user?.userId ? (

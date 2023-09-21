@@ -1,4 +1,6 @@
 import React from "react";
+
+
 import {
 Box,
 Container,
@@ -19,15 +21,16 @@ return (
 		<Row>
 		<Column>
 			<Heading>About Us</Heading>
-			<FooterLink href="">Who Are We?</FooterLink>
+			<FooterLink href="/whoarewe">Who Are We?</FooterLink>
 		
 		</Column>
 		
 		<Column>
 			<Heading>Useful Links</Heading>
-			<FooterLink href="#">Post New Ad</FooterLink>
-			<FooterLink href="#">Register</FooterLink>
-			<FooterLink href="#">Login</FooterLink>
+
+			<FooterLink href="/postnewad">Post New Ad</FooterLink>
+			<FooterLink href="/register">Register</FooterLink>
+			<FooterLink href="/login">Login</FooterLink>
 		</Column>
 		<Column>
 			<Heading>Social Media</Heading>

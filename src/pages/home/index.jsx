@@ -1,23 +1,28 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { DogsPage } from "../../categories/dogs";
-import { CatsPage } from "../../categories/cats";
-import { BirdsPage } from "../../categories/birds";
-import { FishesPage } from "../../categories/fishes";
-import { RabbitPage } from "../../categories/rabbit";
 import { useNavigate } from 'react-router-dom';
-
+import { UserContext } from "../../contexts/UserContext";
+import { useContext } from "react";
 export const HomePage = () => {
     const navigate = useNavigate();
   
     const goToShopPage = () => {
       navigate('/shop');
     }
+    const {user} = useContext(UserContext);
+    const goToSellingPage = () => {
+    {user?.userId ? (
+        navigate('postnewad')
+      ) : (
+        navigate('/login')
+      )}
+    }
+
     return <>
     <div className="looking-for-div">
         <p className="home-title">what are you looking for? <br />
         
         <button className="buying-pet-button" onClick={goToShopPage}>buying pet</button>
-        <button className="selling-pet-button">selling pet</button>
+        <button className="selling-pet-button" onClick ={goToSellingPage}>selling pet</button>
         </p>
       
     </div>
@@ -41,9 +46,9 @@ export const HomePage = () => {
         <p className="pet-text"> birds</p>  </NavLink>
         </div>
 
-        <div className="fishes">
-        < NavLink to="/fishes" > <img src="https://i.guim.co.uk/img/media/508a81fbec626742e8417bdf449df106f61538fc/0_452_4300_2580/master/4300.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=01e153091f75c604c08dc099ed08ae5d" alt="" className="fish-img" />
-        <p className="pet-text"> fishes</p>  </NavLink>
+        <div className="fish">
+        < NavLink to="/fish" > <img src="https://i.guim.co.uk/img/media/508a81fbec626742e8417bdf449df106f61538fc/0_452_4300_2580/master/4300.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=01e153091f75c604c08dc099ed08ae5d" alt="" className="fish-img" />
+        <p className="pet-text"> fish</p>  </NavLink>
 
         </div>
 
