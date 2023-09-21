@@ -56,8 +56,11 @@ export const AppLayout = () =>{
             </div>
         )}
       </nav>
+      <div className="container">
+
       <Outlet />
 
+      </div>
       <Footer/>
         </>
     );

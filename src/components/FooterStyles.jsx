@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Box = styled.div`
+margin-top: 30px !important;
 padding: 80px 60px;
 background-color: lightpink;
 width: 100%;
