@@ -17,8 +17,10 @@ export const Card = ({ character }) =>
         <div className="col-12 px-4 pt-2">
           <h4>{character.name}</h4>
           <h5 className="mt-2">{character.status}</h5>
-          <p className="mt-4">lokacija: {character.location.name}</p>
+          <p className="mt-4">location: {character.location.name}</p>
           <p> <b>Age:</b> 1 </p>
+          <p> <b>Posted:</b> {character.time} </p>
+
         </div>
       </div>
     </div>

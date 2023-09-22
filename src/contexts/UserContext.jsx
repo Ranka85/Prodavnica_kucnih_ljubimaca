@@ -14,9 +14,9 @@ export const UserProvider = ({ children }) => {
       : null
   );
 
-  // const isUserLogedIn = () => {
-  //    return localStorage.getItem('token')? true: false
-  // };
+  const isUserLogedIn = () => {
+     return localStorage.getItem('token')? true: false
+  };
 
   const handleUserLogin = token => {
     const userObject = jwtDecode(token);

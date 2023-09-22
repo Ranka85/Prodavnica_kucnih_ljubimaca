@@ -13,15 +13,15 @@ import { BirdsPage } from '../categories/birds';
 import { RabbitPage } from '../categories/rabbit';
 import { PostNewAdPage } from '../pages/postNewAd';
 
-import { ProtectedRoute, PublicRoute } from './Routes';
+import { ProtectedRoute } from './Routes';
 
 export const appRoutes = [
   {
     path: '',
-    element: <PublicRoute element={<AppLayout />} />,
+    element:<AppLayout />,
     children: [
       {
-        index: true,
+        index:true,
         element: <HomePage />,
         exact: true,
       },
@@ -42,14 +42,14 @@ export const appRoutes = [
 
       { path: 'whoAreWe', element: <WhoAreWePage /> },
        { path: 'postNewAd', element:  <ProtectedRoute element={<PostNewAdPage />}/> },
-      { path: '*', element: <h1>404 Not found</h1> },
-      { path: 'users', element: <UsersPage /> },
-      { path: 'pets', element: <PetsPage /> },
+       { path: 'users', element: <UsersPage /> },
+       { path: 'pets', element: <PetsPage /> },
+       { path: '*', element: <h1>404 Not found</h1> },
     
     ],
   },
-  { path: 'login', element: <PublicRoute element={<LoginPage />} /> },
-  { path: 'register', element: <PublicRoute element={<RegisterPage />} /> },
+  { path: 'register', element: <RegisterPage /> },
+  { path: 'login', element: <LoginPage  /> },
   { path: '*', element: <h1>404 Not found</h1> },
  
 ];

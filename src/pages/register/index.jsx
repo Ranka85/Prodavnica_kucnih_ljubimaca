@@ -25,25 +25,31 @@ export const RegisterPage = () => {
     });
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    
-    try {
-      const body = JSON.stringify(formData);
+ 
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  
+  authService.registerUser(formData)
+    .then(response => {
+      const token = response.data.token;
+      localStorage.setItem('authToken', token);
+      handleUserLogin(response.data); 
+      navigate('/login');  
+    })
+    .catch(error => {
+      console.error("Registration failed: ", error);
+      if (error.response && error.response.data) {
+        setErrors(error.response.data);  
+      }
+    });
+};
 
-      const response = await registerUser(body);
-      handleUserLogin(response.data.token);
-      navigate('/');
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   return (
     <div className='registration-container'>
       <div className='border-div-reg'>
       <h2 className='text-register'>Registration Form</h2>
-      <form onSubmit={handleSubmit}>
+      <form method="post"  onSubmit={handleSubmit}>
         <div className='registration-flex'>
           <label htmlFor="name" className='text-reg'>Name</label>
           <input

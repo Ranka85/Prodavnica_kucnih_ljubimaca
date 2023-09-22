@@ -35,7 +35,7 @@ nav{
 text-decoration: underline;
 }
 
-#log-in-Button, #Reg-Button{
+#log-in-Button, #Reg-Button,.Sign-Out-Button{
   margin-left: auto;
   margin-top: 35px;
   margin-right: 30px;

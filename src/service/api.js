@@ -38,13 +38,15 @@ axiosInstance.interceptors.response.use(
 
 
 export const nodeBackend = axios.create({
-    baseURL: import.meta.env.VITE_API_BASE_URL,
+    baseURL: "http://localhost:3000/",
     timeout: 5000,
     withCredentials: false,
     headers: {
       'Content-Type': 'application/json',
     },
   });
+
+
   
   nodeBackend.interceptors.request.use(
     config => {
@@ -60,3 +62,4 @@ export const nodeBackend = axios.create({
     },
     error => Promise.reject(error)
   );
+

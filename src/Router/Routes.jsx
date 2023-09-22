@@ -8,8 +8,8 @@ export const ProtectedRoute = ({ element }) => {
   return user?.userId ? <>{element}</> : <Navigate to="/login" />;
 };
 
-export const PublicRoute = ({ element }) => {
-  const { user } = useContext(UserContext);
+// export const PublicRoute = ({ element }) => {
+//   const { user } = useContext(UserContext);
 
-  return user?.userId ? <Navigate to="/" /> : <>{element}</>;
-};
+//   return <>{element}</>;
+// };
