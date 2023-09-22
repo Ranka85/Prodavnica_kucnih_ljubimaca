@@ -31,7 +31,7 @@ console.log(result);
         return <div>Loading...</div>;
 //return images with name 
     return (
-        <div>
+        <div className="container">  
             <h1>Rick and Morty</h1>
             <div className="row">
 

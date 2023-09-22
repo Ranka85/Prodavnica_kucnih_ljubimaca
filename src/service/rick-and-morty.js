@@ -1,7 +1,7 @@
 import { axiosInstance } from "./api"
 
 class RickAndMortyService {
-    getAllCharacters = async () => await axiosInstance.get("/character")
+    getAllCharacters = async () => await axiosInstance.get("/ads/")
 
     getAllLocations = async () => await axiosInstance.get("/location")
     

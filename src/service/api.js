@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'https://rickandmortyapi.com/api/',
+  baseURL: 'https://0197-37-122-179-16.ngrok-free.app/',
   timeout: 1000,
   headers: {
     'Content-Type': 'application/json',

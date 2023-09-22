@@ -1,53 +1,42 @@
-import React, { useState } from 'react';
-import "./registerStyle.css"
+import { useState, useContext } from 'react';
+import { authService } from '../../service/auth';
+import { UserContext } from '../../contexts/UserContext';
+import { useNavigate } from 'react-router-dom';
+import './registerstyle.css';
 
+const { registerUser } = authService;
 
-export const RegisterPage=()=> {
+export const RegisterPage = () => {
+  const { handleUserLogin } = useContext(UserContext);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
   });
+  const navigate = useNavigate();
 
   const [errors, setErrors] = useState({});
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
     setFormData({
       ...formData,
       [name]: value,
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
+    try {
+      const body = JSON.stringify(formData);
 
-    const validationErrors = {};
-
-    if (!formData.name) {
-      validationErrors.name = 'Name is required';
+      const response = await registerUser(body);
+      handleUserLogin(response.data.token);
+      navigate('/');
+    } catch (error) {
+      console.log(error);
     }
-
-    if (!formData.email) {
-      validationErrors.email = 'Email is required';
-    } else if (!isValidEmail(formData.email)) {
-      validationErrors.email = 'Invalid email format';
-    }
-
-    if (!formData.password) {
-      validationErrors.password = 'Password is required';
-    }
-
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-    } else {
-      console.log('Form data submitted:', formData);
-    }
-  };
-
-  const isValidEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
   };
 
   return (
@@ -63,7 +52,7 @@ export const RegisterPage=()=> {
             id="name"
             name="name"
             value={formData.name}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
           {errors.name && <div className="error">{errors.name}</div>}
         </div>
@@ -75,7 +64,7 @@ export const RegisterPage=()=> {
             id="email"
             name="email"
             value={formData.email}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
           {errors.email && <div className="error">{errors.email}</div>}
         </div>
@@ -87,7 +76,7 @@ export const RegisterPage=()=> {
             id="password"
             name="password"
             value={formData.password}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
           {errors.password && <div className="error">{errors.password}</div>}
         </div>

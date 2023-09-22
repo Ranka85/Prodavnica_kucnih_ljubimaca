@@ -15,7 +15,7 @@ export const SearchDropdownPage = () => {
           <Link to="/users">Users</Link>
         </Dropdown.Item>
         <Dropdown.Item className='dropdown-items'>
-          <Link to="/pets">Pets</Link>
+          <Link to="/shop">Pets</Link>
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
