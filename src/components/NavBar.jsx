@@ -24,8 +24,8 @@ export const NavBar=()=> {
         <Nav className="me-auto">
          
           <NavDropdown title="Search by:" id="collapsible-nav-dropdown">
-            <NavDropdown.Item href="/Pets">Pets</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">Users</NavDropdown.Item>
+            <NavDropdown.Item href="/shop">Pets</NavDropdown.Item>
+            <NavDropdown.Item href="">Users</NavDropdown.Item>
         
           </NavDropdown>
           <Nav.Link href="/">Home</Nav.Link>

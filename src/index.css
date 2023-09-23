@@ -174,10 +174,7 @@ margin: 0;
   width: 100px;
   border-radius: 50%;
   background-color: rgb(255, 255, 255);
-  background-image: url("https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_640.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+
   box-shadow: 0px 0px 5px 0px rgba(212, 134, 134, 0.75);
   cursor: pointer;
 }
@@ -326,10 +323,6 @@ a{
   width: 400px;
   border-radius: 2%;
   background-color: rgb(255, 255, 255);
-  background-image: url("https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_640.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   box-shadow: 0px 0px 5px 0px rgba(212, 134, 134, 0.75);
   cursor: pointer;
 }
@@ -440,8 +433,93 @@ a{
     /* line betwwen items */
         
   }
-  
+  .home-title{
+    font-size: 1.6em;
+    margin-left: 10%;
+  }
+  .buying-pet-button, .selling-pet-button{
+    font-size: 1rem;
+  }
+  .h-browse-cate{
+    font-size: 1rem;
+    margin-left: 29%;
+    height: 60px;
+    width: 200px;
+  }
+  .pets{
+    /* i want three pats in a row  */
+   height: 300px;
+    width: 95%;
 
+    display: flex;
+    flex-wrap: wrap;
+
+
+  }
+  .post-free-button{
+    font-size: 1rem;
+    margin-left: 30%;
+    margin-top: 10%;
+    height: 60px;
+    width: 190px;
+
+  }
+  .p-post-add{
+    font-size: 1.5em;
+    margin-bottom: -1% ;
+  }
+  .post-free-ad{
+    height: 300px;
+    margin-top: 10%;
+  }
+
+  .sc-dmyDmy{
+    margin: 0;
+    padding: 0;
+  }
+  .help-cntc, .abt-use-div{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-left: 0;
+  }
+  .welcome-text{
+    font-size: 1.5em;
+    width: 300px;
+    margin-left: 12%;
+  }
+  .select-text{
+    font-size: 1em;
+    width: 300px;
+    margin-left: 12%;
+    text-align: center;
+  }
+  .pic-with-text-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-left: -10;
+    /* space between */
+    grid-column-gap: 10px;
+  }
+
+.dog-img-shop, .bird-img-shop, .cat-img-shop, .rabbit-img-shop, .fish-img-shop{
+  height: 190px;
+  width: 190px;
+  border-radius: 2%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 5px 0px rgba(212, 134, 134, 0.75);
+  cursor: pointer;
+}
+.rab-fish{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.rabbit-shop{
+  margin-left: 90%;
+}
 }
 
 .navbar-collapse {

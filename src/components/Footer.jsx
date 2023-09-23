@@ -19,6 +19,9 @@ return (
 	</h1>
 	<Container>
 		<Row>
+			<div className="abt-use-div">
+
+		
 		<Column>
 			<Heading>About Us</Heading>
 			<FooterLink href="/whoarewe">Who Are We?</FooterLink>
@@ -32,6 +35,9 @@ return (
 			<FooterLink href="/register">Register</FooterLink>
 			<FooterLink href="/login">Login</FooterLink>
 		</Column>
+		</div>
+		<div className="help-cntc">
+
 		<Column>
 			<Heading>Social Media</Heading>
 			<FooterLink href="#">Instagram</FooterLink>
@@ -53,8 +59,9 @@ return (
 			<FooterLink href="#">
 			Contact Us
 			</FooterLink>
-			
 		</Column>
+		</div>
+
 		</Row>
 	</Container>
 	</Box>
