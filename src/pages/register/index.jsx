@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { authService } from '../../service/auth';
 import { UserContext } from '../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
-import './registerstyle.css';
+import './registerStyle.css';
 
 const { registerUser } = authService;
 
