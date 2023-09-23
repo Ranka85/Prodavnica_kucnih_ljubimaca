@@ -3,6 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { useContext } from "react";
 import { SearchDropdownPage } from "../components/SearchDropdown";
+import { NavBar } from "../components/NavBar";
 
 
 export const AppLayout = () =>{
@@ -12,7 +13,9 @@ export const AppLayout = () =>{
 
     return (
         <>
-        <nav>
+        <NavBar/>
+
+        {/* <nav>
             <div className="site-name">
             Pet-selling
             </div>
@@ -60,12 +63,10 @@ export const AppLayout = () =>{
 
             </div>
         )}
-      </nav>
-      <div className="container">
+      </nav> */}
 
       <Outlet />
 
-      </div>
       <Footer/>
         </>
     );

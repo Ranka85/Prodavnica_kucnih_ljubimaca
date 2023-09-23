@@ -10,21 +10,24 @@ nav{
   height: 150px;
   background-color: rgb(255, 255, 255);
  }
- .nav-without-buttons{
+ .bg-body-tertiary{
+  background-color: white;
+ }
+ .navbar-collapse {
   background-color: rgb(255, 255, 255);
   margin-top: 20px;
   margin-left: 15%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
   padding: 0 10px;
 }
-#search-nav,#shop-nav,#whoAreWe-nav, #home-nav,#postNewAd-nav{
+.me-auto{
   text-decoration: none;
   color: black;
-  font-size: 0.9em;
+  font-size: 1.2em;
   font-weight: bold;
+  margin-left: 10px;
   padding: 30px;
   transition: 0.3s ease-in-out;
   border-bottom: 2px solid transparent;
@@ -63,7 +66,7 @@ text-decoration: underline;
 
 }
 
-.site-name{
+.navbar-brand{
   display: flex;
   font-weight: bold;
   font-size: 1.8em;
@@ -71,6 +74,18 @@ text-decoration: underline;
   margin-top: 50px;
   margin-left: 10px;
 
+}
+.site-logo{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  background-image: url("https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_640.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 0px 5px 0px rgba(212, 134, 134, 0.75);
+  cursor: pointer;
 }
 
 .looking-for-div{
@@ -382,4 +397,59 @@ a{
   margin-top: 10px;
   margin-bottom: 10px;
   transition: 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  /* logo */
+  .site-logo{
+  /* small size of img  */
+  height: 50px;
+  width: 50px;
+  }
+  #log-in-Button, #Reg-Button, .Sign-Out-Button {
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+
+  }
+  .login-reg-button{
+    /* font-size: 0.5em; */
+    /*    padding: 1%;*/
+    position: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /*     margin-right: auto;*/
+    /* margin-top: -30px; */
+    margin: 0;
+    padding: 0;
+  }
+  .dropdown-toggle.nav-link{
+    justify-content: center;
+    align-items: center;
+    
+  }
+  #collapsible-nav-dropdown{
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .dropdown-item{
+    font-size: 1rem;
+    font-weight: bold;
+    /* line betwwen items */
+        
+  }
+  
+
+}
+
+.navbar-collapse {
+  background-color: rgb(255, 255, 255);
+  margin-top: 20px;
+  margin-left: 15%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
 }
