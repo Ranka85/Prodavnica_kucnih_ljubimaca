@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./postADD.css";
+import "./postAdd.css";
 
 export const PostNewAdPage = () => {
   const [adData, setAdData] = useState({
