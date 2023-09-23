@@ -7,20 +7,20 @@ body{
 
 #responsive-navbar-nav{
   height: 100px ;
-  width: 900px !;
   margin-left: 10%;
   padding: 0;
   
 }  
 
-.login-reg-button{
+/* .login-reg-button{
   padding-left: 30%;
-  margin-top: -30px;
-}
-.nav-item{
+  margin-top: -20px;
+} */
+/* TODO: removed */
+/* .nav-item{
   margin-bottom: 90px;
   
-}
+} */
 .me-auto{
   margin-top: 10%;
   font-weight: bold;
@@ -63,7 +63,7 @@ text-decoration: underline;
 
 #log-in-Button, #Reg-Button,.Sign-Out-Button{
   margin-left: auto;
-  margin-top: 35px;
+  /* margin-top: 35px; */
   margin-right: 30px;
   background-color: lightpink;
   color: white;
@@ -82,14 +82,15 @@ text-decoration: underline;
   justify-content: center;
   align-items: center;
 }
-.login-reg-button{
+/* .login-reg-button{
   color: white;
   display: flex;
   margin-left: 30px;
 
-}
+} */
 a.nav-link{
-  width:150px ;
+  /* width:150px ; */
+  margin-right: .5rem;
   font-style: bold;
   font-size: 1.2em;
   color: black;
@@ -97,7 +98,20 @@ a.nav-link{
   margin-left: 4px;
 }
 
-.navbar-brand{
+/* TODO: remove */
+
+.brand-container {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-container h1 {
+  margin-bottom: 0!important;
+}
+.brand-container img {
+  max-height: 80px;
+}
+/* .navbar-brand{
   display: flex;
   font-weight: bold;
   font-size: 1.8em;
@@ -105,7 +119,7 @@ a.nav-link{
   margin-top: 50px;
   margin-left: -30px;
 
-}
+} */
 .site-logo{
   height: 100px;
   width: 100px;
@@ -145,8 +159,8 @@ margin: 0;
   .container-home{
     max-width: 1940px !important;
   }
-}
 
+}
 .home-title{
   
   font-size: 3em;
@@ -429,6 +443,12 @@ a{
 }
 
 @media screen and (max-device-width: 480px){
+
+  .login-reg-butaton {
+    display: flex;
+    flex-direction: column!important;
+  }
+
   .site-logo{
   
   height: 50px;
@@ -442,6 +462,9 @@ a{
 
   }
   .login-reg-button{
+    justify-content: start;
+  }
+  /* .login-reg-button{
 
     position: flex;
     flex-direction: column;
@@ -450,7 +473,7 @@ a{
  
     margin: 0;
     padding: 0;
-  }
+  } */
   .dropdown-toggle.nav-link{
     justify-content: center;
     align-items: center;
@@ -557,3 +580,10 @@ a{
 }
 }
 
+
+
+
+.login-reg-butaton {
+  display: flex;
+  flex-direction: row;
+}
