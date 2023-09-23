@@ -5,7 +5,30 @@ body{
 
 }
 
-nav{
+#responsive-navbar-nav{
+  height: 100px ;
+  width: 900px !;
+  margin-left: 10%;
+  padding: 0;
+  
+}  
+
+.login-reg-button{
+  padding-left: 30%;
+  margin-top: -30px;
+}
+.nav-item{
+  margin-bottom: 90px;
+  
+}
+.me-auto{
+  margin-top: 10%;
+  font-weight: bold;
+}
+.bg-body-tertiary{
+  background-color: white !important;
+}
+/* nav{
   display: flex;
   height: 150px;
   background-color: rgb(255, 255, 255);
@@ -32,11 +55,11 @@ nav{
   transition: 0.3s ease-in-out;
   border-bottom: 2px solid transparent;
   cursor: pointer;
-}
+} */
 
-#search-nav:hover,#shop-nav:hover,#whoAreWe-nav:hover, #home-nav:hover, #postNewAd-nav:hover{
+/* #search-nav:hover,#shop-nav:hover,#whoAreWe-nav:hover, #home-nav:hover, #postNewAd-nav:hover{
 text-decoration: underline;
-}
+} */
 
 #log-in-Button, #Reg-Button,.Sign-Out-Button{
   margin-left: auto;
@@ -65,6 +88,14 @@ text-decoration: underline;
   margin-left: 30px;
 
 }
+a.nav-link{
+  width:150px ;
+  font-style: bold;
+  font-size: 1.2em;
+  color: black;
+  text-decoration: none;
+  margin-left: 4px;
+}
 
 .navbar-brand{
   display: flex;
@@ -72,7 +103,7 @@ text-decoration: underline;
   font-size: 1.8em;
   color: lightpink;
   margin-top: 50px;
-  margin-left: 10px;
+  margin-left: -30px;
 
 }
 .site-logo{
@@ -168,7 +199,6 @@ margin: 0;
 }
 
 
-/* circle small images */
 .dog-img,.bird-img,.cat-img,.rabbit-img,.fish-img{
   height: 100px;
   width: 100px;
@@ -277,8 +307,6 @@ margin: 0;
 }
 
 
-
-
 .dropdown-menu{
   width: 200px;
 }
@@ -303,7 +331,30 @@ a{
   margin-top: 5px;
  
 }
+/* .sc-dmyDmy{
+  margin: 0;
+  padding: 0;
+}
+.help-cntc{
+  display: flex;
+  margin-top: 10%;
+  margin-bottom: 10%;
+ 
+}
 
+.abt-use-div{
+  display: flex;
+  margin-top: 10%;
+  margin-bottom: 10%;
+ 
+ 
+}
+
+
+.sc-hLQTFJ{
+  display: flex;
+  justify-content: space-between;
+} */
 
 .pet-text-shop{
   display: flex;
@@ -326,26 +377,11 @@ a{
   box-shadow: 0px 0px 5px 0px rgba(212, 134, 134, 0.75);
   cursor: pointer;
 }
-/* .dogs-shop,
-.cats-shop,
-.birds-shop,
-.fishes-shop,
-.rabbit-shop {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: calc(50% - 25px);  
-  margin: 10px;  
-  background-color: rgb(255, 255, 255);
-  border-radius: 5px;
-  transition: 0.3s ease-in-out;
-  cursor: pointer;
-} */
 
-/* i want to pics in one row  */
 .pic-with-text-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin-left: 10%;
 }
 
 .dogs-shop,
@@ -392,10 +428,9 @@ a{
   transition: 0.3s ease-in-out;
 }
 
-@media only screen and (max-width: 768px) {
-  /* logo */
+@media screen and (max-device-width: 480px){
   .site-logo{
-  /* small size of img  */
+  
   height: 50px;
   width: 50px;
   }
@@ -407,14 +442,12 @@ a{
 
   }
   .login-reg-button{
-    /* font-size: 0.5em; */
-    /*    padding: 1%;*/
+
     position: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    /*     margin-right: auto;*/
-    /* margin-top: -30px; */
+ 
     margin: 0;
     padding: 0;
   }
@@ -430,7 +463,6 @@ a{
   .dropdown-item{
     font-size: 1rem;
     font-weight: bold;
-    /* line betwwen items */
         
   }
   .home-title{
@@ -447,7 +479,6 @@ a{
     width: 200px;
   }
   .pets{
-    /* i want three pats in a row  */
    height: 300px;
     width: 95%;
 
@@ -496,8 +527,9 @@ a{
   .pic-with-text-container{
     display: grid;
     grid-template-columns: 50% 50%;
-    margin-left: -10;
-    /* space between */
+    /* margin-left: -10; */
+    margin-left:0%;
+
     grid-column-gap: 10px;
   }
 
@@ -520,14 +552,8 @@ a{
 .rabbit-shop{
   margin-left: 90%;
 }
+.navbar-brand{
+  margin-left: 0;
+}
 }
 
-.navbar-collapse {
-  background-color: rgb(255, 255, 255);
-  margin-top: 20px;
-  margin-left: 15%;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  padding: 0 10px;
-}

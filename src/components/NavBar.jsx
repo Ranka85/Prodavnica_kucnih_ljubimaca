@@ -28,11 +28,11 @@ export const NavBar=()=> {
             <NavDropdown.Item href="">Users</NavDropdown.Item>
         
           </NavDropdown>
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/shop">Shop</Nav.Link>
+          <Nav.Link href="/">Home  </Nav.Link>
+          <Nav.Link href="/shop">Shop  </Nav.Link>
         {/* </Nav> */}
         <Nav>
-          <Nav.Link href="/Whoarewe">Who Are We</Nav.Link>
+          <Nav.Link href="/Whoarewe">Who Are We  </Nav.Link>
           <Nav.Link eventKey={2} href="/postnewad">Post New Ad  </Nav.Link>
 
          </Nav>
