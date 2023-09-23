@@ -1,7 +1,7 @@
 import { axiosInstance } from "./api"
 
 class PetService {
-    getAllDogs = async () => await axiosInstance.get("/dog")
+    getAllDogs = async () => await axiosInstance.get("/ads")
 
     getAllCats = async () => await axiosInstance.get("/cat")
     

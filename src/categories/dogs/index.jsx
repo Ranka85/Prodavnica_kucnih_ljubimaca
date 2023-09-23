@@ -31,7 +31,7 @@ console.log(result);
 //return images with name 
     return (
         <div className="container">  
-            <h1>Rick and Morty</h1>
+            <h1>Dogs</h1>
             <div className="row">
 
             {data.map((character) => (

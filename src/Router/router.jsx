@@ -41,7 +41,7 @@ export const appRoutes = [
       },
 
       { path: 'whoAreWe', element: <WhoAreWePage /> },
-       { path: 'postNewAd', element:  <ProtectedRoute element={<PostNewAdPage />}/> },
+       { path: 'postNewAd', element:  /*<ProtectedRoute element={>*/<PostNewAdPage />/*}/>*/ },
        { path: 'users', element: <UsersPage /> },
        { path: 'pets', element: <PetsPage /> },
        { path: '*', element: <h1>404 Not found</h1> },

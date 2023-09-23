@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'https://0197-37-122-179-16.ngrok-free.app/',
+  baseURL: 'http://127.0.0.1:8000/',
   timeout: 1000,
   headers: {
     'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ axiosInstance.interceptors.response.use(
 
 
 export const nodeBackend = axios.create({
-    baseURL: "http://localhost:3000/",
+    baseURL: "http://127.0.0.1:8000/",
     timeout: 5000,
     withCredentials: false,
     headers: {
