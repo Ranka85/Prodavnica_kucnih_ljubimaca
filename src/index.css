@@ -345,30 +345,6 @@ a{
   margin-top: 5px;
  
 }
-/* .sc-dmyDmy{
-  margin: 0;
-  padding: 0;
-}
-.help-cntc{
-  display: flex;
-  margin-top: 10%;
-  margin-bottom: 10%;
- 
-}
-
-.abt-use-div{
-  display: flex;
-  margin-top: 10%;
-  margin-bottom: 10%;
- 
- 
-}
-
-
-.sc-hLQTFJ{
-  display: flex;
-  justify-content: space-between;
-} */
 
 .pet-text-shop{
   display: flex;
@@ -442,6 +418,18 @@ a{
   transition: 0.3s ease-in-out;
 }
 
+
+.abt-use-div,.help-cntc{
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.eFWcZm{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)) !important ;
+  grid-gap: 20px;
+}
 @media screen and (max-device-width: 480px){
 
   .login-reg-butaton {
@@ -464,16 +452,7 @@ a{
   .login-reg-button{
     justify-content: start;
   }
-  /* .login-reg-button{
 
-    position: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
- 
-    margin: 0;
-    padding: 0;
-  } */
   .dropdown-toggle.nav-link{
     justify-content: center;
     align-items: center;
@@ -535,6 +514,10 @@ a{
     display: grid;
     grid-template-columns: 50% 50%;
     margin-left: 0;
+  }
+  .hvieqO{
+    padding-left: 0px !important;
+    margin-left: 0 !important;
   }
   .welcome-text{
     font-size: 1.5em;

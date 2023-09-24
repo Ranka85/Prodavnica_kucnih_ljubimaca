@@ -13,13 +13,28 @@ export const PostNewAdPage = () => {
     pet_date_of_birth: "",
     description: "",
     // image: "",
-    category: "dog",
+    pet_type: "",
     created: null, 
   });
+  const petTypes = {
+    'Cat': 1,
+    'Dog': 2,
+    'Rabbit': 3,
+    'Bird': 4,
+    'Fish': 5
+  };
+  
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [errorFields, setErrorFields] = useState({});
+
   
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+
+    const currentTime = new Date().toISOString();
+    setAdData({ ...adData, created: currentTime });
   const formData = new FormData();
   Object.keys(adData).forEach((key) => formData.append(key, adData[key]));
   // if (image) {
@@ -34,9 +49,28 @@ const handleSubmit = async (e) => {
      }
    });
    console.log("Data sent successfully:", response.data);
+    setIsSuccess(true);
+    setTimeout(() => {
+      setAdData({
+        ad_title: "",
+        phone_number: "",
+        price: "",
+        address: "",
+        user: "",
+        pet_date_of_birth: "",
+        description: "",
+        pet_type: "",
+        created: null,
+      });
+      setIsSuccess(false);
+      setIsError(false); 
+    }, 3000); 
+
  } catch (error) {
    console.error("Error sending data:", error);
+    setIsError(true);
    if (error.response) {
+      setErrorFields(error.response.data);
      console.log('Server responded with status:', error.response.status);
      console.log('Error data:', error.response.data);
    }
@@ -44,13 +78,20 @@ const handleSubmit = async (e) => {
 };
 
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setAdData({
-      ...adData,
-      [name]: value,
-    });
-  };
+const handleInputChange = (e) => {
+  
+  const { name, value } = e.target;
+  let finalValue = value;
+  
+  if (name === "pet_type") {
+    finalValue = petTypes[value];
+  }
+
+  setAdData({
+    ...adData,
+    [name]: finalValue,
+  });
+};
 
   // const handleImageChange = (e) => {
   //   const file = e.target.files[0];
@@ -77,27 +118,30 @@ const handleSubmit = async (e) => {
         <h2 className="text-ad">Post a New Ad</h2>
         <form onSubmit={handleSubmit} className="form-postAd">
           <input
+          style={{ border: errorFields.ad_title ? '3px solid red' : '1px solid black' }}
             type="text"
             name="ad_title"
-            placeholder="Ad title"
+            placeholder="Pet Name"
             value={adData.ad_title}
             onChange={handleInputChange}
             required
           />
           <select
-            name="category"
+            name="pet_type"
             onChange={handleInputChange}
             required
             className="input-ad"
+            
           >
-            <option value="Cat">Cat</option>
             <option value="Dog">Dog</option>
-            <option value="Rabbit">Rabbit</option>
+            <option value="Cat">Cat</option>
             <option value="Bird">Bird</option>
             <option value="Fish">Fish</option>
-            {/* value ={adData.category} */}
+            <option value="Rabbit">Rabbit</option>
           </select>
+          <p className="pet-date">pet date of birth:</p>
           <input
+          style={{ border: errorFields.pet_date_of_birth ? '3px solid red' : '1px solid black' }}
             className="input-ad"
             type="date"
             name="pet_date_of_birth"
@@ -107,6 +151,7 @@ const handleSubmit = async (e) => {
             required
           />
           <input
+          style={{ border: errorFields.address ? '3px solid red' : '1px solid black' }}
             className="input-ad"
             type="text"
             name="address"
@@ -116,6 +161,7 @@ const handleSubmit = async (e) => {
             // required
           />
           <input
+          style={{ border: errorFields.phone_number ? '3px solid red' : '1px solid black' }}
             className="input-ad"
             type="text"
             name="phone_number"
@@ -125,6 +171,7 @@ const handleSubmit = async (e) => {
             required
           />
           <input
+          style={{ border: errorFields.price ? '3px solid red' : '1px solid black' }}
             className="input-ad"
             type="number"
             name="price"
@@ -135,6 +182,7 @@ const handleSubmit = async (e) => {
           />
 
           <input 
+          style={{ border: errorFields.user ? '3px solid red' : '1px solid black' }}
           className="input-ad"
           type="text" 
           name="user"
@@ -154,16 +202,7 @@ const handleSubmit = async (e) => {
             required
           />
           </div> */}
-          {/* created */}
-          <input
-            className="input-ad"
-            type="date"
-            name="created"
-            placeholder="Created"
-            value={adData.created}
-            onChange={handleInputChange}
-            required
-          />
+      
           <textarea
             className="input-ad"
             name="description"
@@ -176,13 +215,19 @@ const handleSubmit = async (e) => {
           <button type="submit" className="button-ad">
             Post Ad
           </button>
-          {/* <button type="button" onClick={handleDelete} className='button-ad'>Delete Ad</button> */}
+
         </form>
-        {adData.timestamp && (
-          <p className="p-ad">
-            Posted at: {new Date(adData.timestamp).toLocaleString()}
-          </p>
-        )}
+        <div className="post-ad">
+          {isSuccess && (
+            <p className="p-ad-suc">Your ad has been posted successfully.</p>
+          )}
+          {isError && (
+            <p className="p-ad-er">There was an error posting your ad.</p>
+      
+          )}
+
+        </div>
+      
       </div>
     </div>
   );
