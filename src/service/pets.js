@@ -1,15 +1,17 @@
 import { axiosInstance } from "./api"
 
 class PetService {
-    getAllDogs = async () => await axiosInstance.get("/Dogs")
+    getAllDogs = async () => await axiosInstance.get("pet_type_filter/Dog")
 
-    getAllCats = async () => await axiosInstance.get("/Cat/Berane")
+    getAllCats = async () => await axiosInstance.get("pet_type_filter/Cat")
     
-    getAllBirds = async () => await axiosInstance.get("/Bird")
+    getAllBirds = async () => await axiosInstance.get("pet_type_filter/Bird")
 
-    getAllFish = async () => await axiosInstance.get("/Fish")
+    getAllFish = async () => await axiosInstance.get("pet_type_filter/Fish")
 
-    getAllRabbits = async () => await axiosInstance.get("/Rabbit")
+    getAllRabbits = async () => await axiosInstance.get("pet_type_filter/Rabbit")
+
+    getAllAds =  async () => await axiosInstance.get("ads/")
     
 
 }

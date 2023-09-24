@@ -32,10 +32,10 @@ console.log(result);
         return <div>Loading...</div>;
     return (
         <div className="container">  
-            <h1>Rick and Morty</h1>
+            <h1>Birds</h1>
             <div className="row">
 
-            {data.map((character) => (
+            {data.ads.map((character) => (
                 
                 <div className="col-lg-3 col-md-4 col-sm-6">
                 <Card key={character.id} character={character}/>

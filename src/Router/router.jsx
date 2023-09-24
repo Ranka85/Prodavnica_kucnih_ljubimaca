@@ -5,7 +5,7 @@ import { HomePage } from '../pages/home';
 import { LoginPage } from '../pages/login';
 import { RegisterPage } from '../pages/register';
 import { CityPage } from '../pages/city';
-import { PetsPage } from '../pages/pets';
+import { PetPage } from '../pages/pets';
 import { DogsPage } from '../categories/dogs';
 import { CatsPage } from '../categories/cats';
 import { FishPage } from '../categories/fish';
@@ -43,7 +43,7 @@ export const appRoutes = [
       { path: 'whoAreWe', element: <WhoAreWePage /> },
        { path: 'postNewAd', element:  /*<ProtectedRoute element={>*/<PostNewAdPage />/*}/>*/ },
        { path: 'city', element: <CityPage /> },
-       { path: 'pets', element: <PetsPage /> },
+       { path: 'pet', element: <PetPage /> },
        { path: '*', element: <h1>404 Not found</h1> },
     
     ],

@@ -161,7 +161,7 @@ export const NavBar=()=> {
             // navbarScroll
           >
               <NavDropdown title="Search by: " id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/shop">Pet </NavDropdown.Item>
+              <NavDropdown.Item href="/pet">Pet </NavDropdown.Item>
               <NavDropdown.Item href="/city"> City  </NavDropdown.Item>
 
             </NavDropdown>

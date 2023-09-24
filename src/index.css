@@ -343,7 +343,22 @@ a{
   cursor: pointer;
   background-color: rgb(255, 255, 255);
   margin-top: 5px;
+  margin-bottom: 5px;
  
+}
+.btn{
+  display: flex;
+  justify-content: center;
+  background-color: pink;
+  border-color: lightpink;
+  color: black;
+  margin-left: 30%;
+  margin-bottom: 10px;
+}
+
+.btn:hover{
+  background-color: rgb(218, 63, 89);
+  border-color: rgb(218, 63, 89);
 }
 
 .pet-text-shop{

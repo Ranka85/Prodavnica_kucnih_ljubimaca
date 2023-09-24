@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axiosInstance from '../../service/api';
+import { axiosInstance } from "../../service/api";
 import { Card } from "../../components/Card";
 import style from './style.css';
 export const CityPage = () => {
@@ -12,7 +12,7 @@ export const CityPage = () => {
     if (city && petType) {
       try {
         console.log(`Fetching data for petType: ${petType}, city: ${city}`);
-        const response = await axiosInstance.get(`${petType}/${city}`);
+        const response = await axiosInstance.get(`pet_type_filter/${petType}/${city}`);
         setResults(response.data);
         console.log("API Response:", response.data);
 
@@ -48,7 +48,7 @@ export const CityPage = () => {
         <option value="Rabbit">Rabbit</option>
       </select>
 
-      <button onClick={fetchResults} disabled={city==="" || petType===""}>Search</button>
+      <button className= "button-city"onClick={fetchResults} disabled={city==="" || petType===""}>Search</button>
       </div>
     {results && results.ads ? (
   <div  className="result-div">

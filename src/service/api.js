@@ -1,16 +1,10 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'http://127.0.0.1:8000/pet_type_filter/',
-  timeout: 1000,
-  headers: {
-    'Content-Type': 'application/json',
-    // "ngrok-skip-browser-warning": true,
-    // 'Accept': 'application/json'
-  },
+  baseURL: 'https://pet.markodev.me/',
+  timeout: 5000,
 });
 
-export default axiosInstance;
 
 
 axiosInstance.interceptors.request.use(
@@ -38,7 +32,7 @@ axiosInstance.interceptors.response.use(
 
 
 export const nodeBackend = axios.create({
-    baseURL: "http://127.0.0.1:8000/",
+    baseURL: "https://pet.markodev.me/",
     timeout: 5000,
     withCredentials: false,
     headers: {
@@ -56,6 +50,7 @@ export const nodeBackend = axios.create({
         config.headers = {
           Authorization: `Bearer ${token}`,
           Accept: 'application/json',
+
         };
   
       return config;
