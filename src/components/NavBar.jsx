@@ -161,11 +161,11 @@ export const NavBar=()=> {
             // navbarScroll
           >
               <NavDropdown title="Search by: " id="navbarScrollingDropdown">
-              <NavDropdown.Item href="/pets">Pets</NavDropdown.Item>
-              <NavDropdown.Item href="/users"> Users  </NavDropdown.Item>
+              <NavDropdown.Item href="/shop">Pet </NavDropdown.Item>
+              <NavDropdown.Item href="/city"> City  </NavDropdown.Item>
 
             </NavDropdown>
-            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/shop">Shop</Nav.Link>
           
             <Nav.Link href="/postnewad" >Post New Ad  </Nav.Link>

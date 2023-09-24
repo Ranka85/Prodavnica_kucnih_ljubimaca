@@ -14,6 +14,7 @@ export const PostNewAdPage = () => {
     description: "",
     // image: "",
     pet_type: "",
+    city:"",
     created: null, 
   });
   const petTypes = {
@@ -60,6 +61,7 @@ const handleSubmit = async (e) => {
         pet_date_of_birth: "",
         description: "",
         pet_type: "",
+        city:"",
         created: null,
       });
       setIsSuccess(false);
@@ -150,6 +152,18 @@ const handleInputChange = (e) => {
             onChange={handleInputChange}
             required
           />
+          {/* input for city  */}
+          <input
+          style={{ border: errorFields.city ? '3px solid red' : '1px solid black' }}
+            className="input-ad"
+            type="text"
+            name="city"
+            placeholder="City"
+            value={adData.city}
+            onChange={handleInputChange}
+            required
+          
+         />
           <input
           style={{ border: errorFields.address ? '3px solid red' : '1px solid black' }}
             className="input-ad"

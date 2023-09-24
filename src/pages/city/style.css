@@ -1,0 +1,28 @@
+.select-div{
+    display: flex;
+    justify-content: center;
+    /* add space betwwen */
+    gap: 1rem;
+    
+}
+.select-city, .select-pet{
+    border-radius: 4px;
+    width: 240px;
+    height: 45px;
+    background-color: rgb(240, 195, 195);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+
+button{
+  
+    display: none;
+}
+
+.buttons{
+    margin: 14px;
+}
+

@@ -4,14 +4,17 @@ import { UserContext } from "../../contexts/UserContext";
 import { useContext } from "react";
 export const HomePage = () => {
     const navigate = useNavigate();
+    const {user} = useContext(UserContext);
+
   
     const goToShopPage = () => {
       navigate('/shop');
     }
-    const {user} = useContext(UserContext);
+
+    
     const goToSellingPage = () => {
     {user?.userId ? (
-        navigate('postnewad')
+        navigate('/postnewad')
       ) : (
         navigate('/login')
       )}

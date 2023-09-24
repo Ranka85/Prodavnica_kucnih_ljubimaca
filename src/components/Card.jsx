@@ -19,6 +19,7 @@ export const Card = ({ character }) =>
           <h5 className="mt-2">{character.description}</h5>
           <p> <b>Age:</b> {character.pet_date_of_birth} </p>
           <p> <b>Price:</b> {character.price} </p>
+          <p><b>City: </b> {character.city}</p>
           <p className="mt-4"><b>location:</b> {character.address}</p>
           <p> <b>Phone Number: </b> {character.phone_number}</p>
           <p> <b>Posted:</b> {character.created} </p>
