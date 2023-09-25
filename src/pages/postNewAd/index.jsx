@@ -20,12 +20,18 @@ export const PostNewAdPage = () => {
 
 
   const petTypes = {
-    'Cat': 1,
-    'Dog': 2,
-    'Rabbit': 3,
-    'Bird': 4,
-    'Fish': 5
+    'Dog': 1,
+    'Cat': 2,
+    'Bird': 3,
+    'Fish': 4,
+    'Rabbit': 5
   };
+
+  const Cities={
+    'Podgorica':1,
+    'Nikšić':2,
+    'Berane':3
+  }
   
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -35,6 +41,9 @@ export const PostNewAdPage = () => {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+  setIsSuccess(false);
+  setIsError(false);
+  setErrorFields({});
 
     const currentTime = new Date().toISOString();
     setAdData({ ...adData, created: currentTime });
@@ -46,7 +55,7 @@ const handleSubmit = async (e) => {
  console.log("Sending Form Data:", formData);  
 
  try {
-   const response = await axios.post("http://127.0.0.1:8000/ads/", formData, {
+   const response = await axios.post("https://pet.markodev.me/ads/", formData, {
      headers: {
        'Content-Type': 'multipart/form-data'
      }
@@ -89,6 +98,10 @@ const handleInputChange = (e) => {
   
   if (name === "pet_type") {
     finalValue = petTypes[value];
+  }
+
+  if (name === "city") {
+    finalValue = Cities[value];
   }
 
   setAdData({
@@ -154,18 +167,19 @@ const handleInputChange = (e) => {
             onChange={handleInputChange}
             required
           />
-          {/* input for city  */}
-          <input
-          style={{ border: errorFields.city ? '3px solid red' : '1px solid black' }}
-            className="input-ad"
-            type="text"
+         
+         <select
             name="city"
-            placeholder="City"
-            value={adData.city}
             onChange={handleInputChange}
             required
+            className="input-ad"
           
-         />
+          >
+            <option value="Podgorica">Podgorica</option>
+            <option value="Nikšić">Niksic</option>
+            <option value="Berane">Berane</option>
+           
+          </select>
           <input
           style={{ border: errorFields.address ? '3px solid red' : '1px solid black' }}
             className="input-ad"
