@@ -17,6 +17,8 @@ export const PostNewAdPage = () => {
     city:"",
     created: null, 
   });
+
+
   const petTypes = {
     'Cat': 1,
     'Dog': 2,

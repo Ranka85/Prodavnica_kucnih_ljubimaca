@@ -8,15 +8,18 @@ const { registerUser } = authService;
 
 export const RegisterPage = () => {
   const { handleUserLogin } = useContext(UserContext);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: '',
+    username: '',
+    first_name:'',
+    last_name:'',
     email: '',
     password: '',
   });
-  const navigate = useNavigate();
-
   const [errors, setErrors] = useState({});
-  
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -25,25 +28,28 @@ export const RegisterPage = () => {
     });
   };
 
- 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
+    
+    // console.log("API call is about to be made"); 
+    registerUser(formData)
+      .then(response => {
+        console.log("API Response:", response.data);
+        // console.log("About to set isSuccess to true"); 
   
-  authService.registerUser(formData)
-    .then(response => {
-      const token = response.data.token;
-      localStorage.setItem('authToken', token);
-      handleUserLogin(response.data); 
-      navigate('/login');  
-    })
-    .catch(error => {
-      console.error("Registration failed: ", error);
-      if (error.response && error.response.data) {
-        setErrors(error.response.data);  
-      }
-    });
-};
-
+        handleUserLogin(response.data);
+        
+        setIsSuccess(true);  
+        navigate('/login');  
+      })
+      .catch(error => {
+        // console.error("Registration failed: ", error);
+        if (error.response && error.response.data) {
+          setErrors(error.response.data);
+          setIsError(true);
+        }
+      });
+  };
 
   return (
     <div className='registration-container'>
@@ -51,44 +57,80 @@ export const RegisterPage = () => {
       <h2 className='text-register'>Registration Form</h2>
       <form method="post"  onSubmit={handleSubmit}>
         <div className='registration-flex'>
-          <label htmlFor="name" className='text-reg'>Name</label>
+          <label htmlFor="username" className='text-reg'>Name</label>
           <input
-            className='registration-rounded'
             type="text"
-            id="name"
-            name="name"
-            value={formData.name}
+            id="username"
+            name="username"
+            value={formData.username}
             onChange={handleInputChange}
+            style={errors.username ? {border: '3px solid red'} : {}}
           />
-          {errors.name && <div className="error">{errors.name}</div>}
+        </div>
+        <div className="registration-flex">
+            <label htmlFor="first_name" className="text-reg">First Name</label>
+            <input
+              type="text"
+              id="first_name"  
+              name="first_name"
+              value={formData.first_name}
+              onChange={handleInputChange}
+              style={errors.first_name ? {border: '3px solid red'} : {}}
+            />
+          </div>
+
+        <div className='registration-flex'>
+          <label htmlFor="last_name" className='text-reg'>Last Name</label>
+          <input
+            type="text"
+            id="last_name"
+            name="last_name"
+            value={formData.last_name}
+            onChange={handleInputChange}
+            style={errors.last_name ? {border: '3px solid red'} : {}}
+
+          />
         </div>
         <div className='registration-flex'>
           <label htmlFor="email" className='text-reg'>Email</label>
           <input
-            className='registration-rounded'
             type="email"
-            id="email"
+            id="email1"
             name="email"
             value={formData.email}
             onChange={handleInputChange}
+            style={errors.email ? {border: '3px solid red'} : {}}
+
           />
           {errors.email && <div className="error">{errors.email}</div>}
         </div>
         <div className='registration-flex'>
           <label htmlFor="password" className='text-reg'>Password</label>
           <input
-          className='registration-rounded'
             type="password"
             id="password"
             name="password"
             value={formData.password}
             onChange={handleInputChange}
+            style={errors.password ? {border: '3px solid red'} : {}}
+
           />
           {errors.password && <div className="error">{errors.password}</div>}
         </div>
-        <button type="submit" className='registration-submit-block '>Register</button>
+        <button type="submit" className='registration-submit-block' >Register</button>
       </form>
+      <div className="post-ad">
+          {isSuccess && (
+            <p className="p-ad-suc">Registration successfully.</p>
+          )}
+          {isError && (
+            <p className="p-ad-er">There was an error </p>
+      
+          )}
+
+        </div>
       </div>
+      
     </div>
   );
 }

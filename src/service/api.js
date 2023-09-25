@@ -32,11 +32,12 @@ axiosInstance.interceptors.response.use(
 
 
 export const nodeBackend = axios.create({
-    baseURL: "https://pet.markodev.me/",
+    baseURL: "https://pet.markodev.me",
     timeout: 5000,
     withCredentials: false,
     headers: {
       'Content-Type': 'application/json',
+      'Accept': 'application/json'
     },
   });
 
