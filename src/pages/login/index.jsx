@@ -24,10 +24,12 @@ export const LoginPage = () => {
     event.preventDefault();
 
     try {
+      
       const body = JSON.stringify({ username, password });
+      // console.log(username, password)
 
       const response = await getLoggedInUser(body);
-      handleUserLogin(response.data.token);
+      handleUserLogin(response.data.access_token);
       navigate('/');
     } catch (error) {
       console.log(error);

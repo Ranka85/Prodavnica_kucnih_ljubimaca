@@ -45,11 +45,11 @@ export const nodeBackend = axios.create({
   
   nodeBackend.interceptors.request.use(
     config => {
-      const token = localStorage.getItem('token');
+      const access_token = localStorage.getItem('access_token');
   
-      if (token)
+      if (access_token)
         config.headers = {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${access_token}`,
           Accept: 'application/json',
 
         };

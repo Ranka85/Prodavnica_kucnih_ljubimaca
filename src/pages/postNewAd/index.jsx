@@ -230,7 +230,7 @@ const handleInputChange = (e) => {
           <div className="ad-img-div">
           <p className="p-img">image of your pet</p>
           <input
-        
+            style={{ border: errorFields.user ? '3px solid red' : '1px solid black' }}        
             className="img-ad"
             type="file"
             name="image"

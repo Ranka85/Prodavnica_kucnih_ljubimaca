@@ -9,25 +9,25 @@ const { Provider } = UserContext;
 export const UserProvider = ({ children }) => {
 
   const [user, setUser] = useState(
-    localStorage.getItem('token')
-      ? jwtDecode(localStorage.getItem('token'))
+    localStorage.getItem('access_token')
+      ? jwtDecode(localStorage.getItem('access_token'))
       : null
   );
 
   const isUserLogedIn = () => {
-     return localStorage.getItem('token')? true: false
+     return localStorage.getItem('access_token')? true: false
   };
 
   const handleUserLogin = token => {
     const userObject = jwtDecode(token);
 
     setUser(userObject);
-    localStorage.setItem('token', token);
+    localStorage.setItem('access_token', token);
 
   };
 
   const handlerUserLogout = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('access_token');
     setUser(null);
   };
 
