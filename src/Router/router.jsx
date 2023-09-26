@@ -12,6 +12,7 @@ import { FishPage } from '../categories/fish';
 import { BirdsPage } from '../categories/birds';
 import { RabbitPage } from '../categories/rabbit';
 import { PostNewAdPage } from '../pages/postNewAd';
+import { UsersPage } from '../pages/users';
 
 import { ProtectedRoute } from './Routes';
 
@@ -44,6 +45,8 @@ export const appRoutes = [
        { path: 'postNewAd', element:  /*<ProtectedRoute element={>*/<PostNewAdPage />/*}/>*/ },
        { path: 'city', element: <CityPage /> },
        { path: 'pet', element: <PetPage /> },
+       { path: 'users', element: <UsersPage /> },
+
        { path: '*', element: <h1>404 Not found</h1> },
     
     ],

@@ -162,6 +162,7 @@ export const NavBar=()=> {
           >
               <NavDropdown title="Search by: " id="navbarScrollingDropdown">
               <NavDropdown.Item href="/pet">Pet </NavDropdown.Item>
+              <NavDropdown.Item href="/users">User </NavDropdown.Item>
               <NavDropdown.Item href="/city"> City  </NavDropdown.Item>
 
             </NavDropdown>

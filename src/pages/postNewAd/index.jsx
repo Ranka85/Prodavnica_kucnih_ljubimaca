@@ -12,7 +12,7 @@ export const PostNewAdPage = () => {
     user: "",
     pet_date_of_birth: "",
     description: "",
-    // image: "",
+    image: "",
     pet_type: "",
     city:"",
     created: null, 
@@ -36,6 +36,8 @@ export const PostNewAdPage = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
   const [errorFields, setErrorFields] = useState({});
+  const [image, setImage] = useState(null);
+
 
   
 
@@ -49,9 +51,9 @@ const handleSubmit = async (e) => {
     setAdData({ ...adData, created: currentTime });
   const formData = new FormData();
   Object.keys(adData).forEach((key) => formData.append(key, adData[key]));
-  // if (image) {
-  //   formData.append("image", image);
- // }
+  if (image) {
+    formData.append("image", image);
+ }
  console.log("Sending Form Data:", formData);  
 
  try {
@@ -72,6 +74,8 @@ const handleSubmit = async (e) => {
         pet_date_of_birth: "",
         description: "",
         pet_type: "",
+        image:"",
+
         city:"",
         created: null,
       });
@@ -110,10 +114,10 @@ const handleInputChange = (e) => {
   });
 };
 
-  // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
-  //   setImage(file);
-  // };
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+  };
 
 
   // const handleDelete = () => {
@@ -150,6 +154,7 @@ const handleInputChange = (e) => {
             className="input-ad"
             
           >
+            <option selected disabled hidden> Pet Type</option>
             <option value="Dog">Dog</option>
             <option value="Cat">Cat</option>
             <option value="Bird">Bird</option>
@@ -175,6 +180,7 @@ const handleInputChange = (e) => {
             className="input-ad"
           
           >
+            <option selected disabled hidden> City</option>
             <option value="Podgorica">Podgorica</option>
             <option value="Nikšić">Niksic</option>
             <option value="Berane">Berane</option>
@@ -185,7 +191,7 @@ const handleInputChange = (e) => {
             className="input-ad"
             type="text"
             name="address"
-            placeholder="Location"
+            placeholder="Address"
             value={adData.address}
             onChange={handleInputChange}
             // required
@@ -221,7 +227,7 @@ const handleInputChange = (e) => {
           onChange={handleInputChange}
           required
           />
-          {/* <div className="ad-img-div">
+          <div className="ad-img-div">
           <p className="p-img">image of your pet</p>
           <input
         
@@ -231,7 +237,7 @@ const handleInputChange = (e) => {
             onChange={handleImageChange}
             required
           />
-          </div> */}
+          </div>
       
           <textarea
             className="input-ad"

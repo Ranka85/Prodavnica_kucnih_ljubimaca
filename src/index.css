@@ -342,7 +342,21 @@ a{
   background-color: rgb(255, 255, 255);
   margin-top: 5px;
   margin-bottom: 5px;
+  margin-left: 9%;
  
+}
+.usercard{
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px 1px rgba(212, 134, 134, 0.75);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+  width: 300px;
+  height: 150;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 9%;
 }
 .btn{
   display: flex;
