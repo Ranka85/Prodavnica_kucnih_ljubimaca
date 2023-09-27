@@ -2,6 +2,7 @@ import Carousel from "react-bootstrap/Carousel";
 import "./whoCss.css";
 
 export const WhoAreWePage = () => {
+
   return (
     <Carousel data-bs-theme="dark">
       <Carousel.Item>

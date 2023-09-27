@@ -39,7 +39,7 @@ export const NavBar=()=> {
             <Nav.Link href="/Whoarewe">Who Are We  </Nav.Link>
           </Nav>
           <div className="actions">
-          {user?.userid?(
+          {user?.id?(
           <button
           className="Sign-Out-Button"
           onClick={handlerUserLogout}

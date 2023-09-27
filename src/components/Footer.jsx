@@ -11,6 +11,7 @@ Heading,
 } from "./FooterStyles";
 
 export const Footer = () => {
+	
 return (
 	<Box>
 	<h1 style={{ color: "green",
@@ -56,7 +57,7 @@ return (
 		</Column>
 		<Column>
 			<Heading>Help</Heading>
-			<FooterLink href="#">
+			<FooterLink href="/whoarewe">
 			Contact Us
 			</FooterLink>
 		</Column>
