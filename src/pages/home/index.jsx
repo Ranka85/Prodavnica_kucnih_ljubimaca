@@ -65,7 +65,6 @@ export const HomePage = () => {
 
         </div>
 <div className="post-free-ad">
-{/* <img src="https://www.fetchpetcare.com/wp-content/uploads/2016/11/dreamstime_xxl_87694876.jpg" alt="" /> */}
 <button className="post-free-button" onClick={goToSellingPage}><p className="p-post-add">POST FREE AD</p></button>
 </div>
 

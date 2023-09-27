@@ -10,10 +10,9 @@ class PetService {
     getAllFish = async () => await axiosInstance.get("pet_type_filter/Fish")
 
     getAllRabbits = async () => await axiosInstance.get("pet_type_filter/Rabbit")
-
-    getAllAds =  async () => await axiosInstance.get("ads/")
     
 
 }
+
 
 export const petService = new PetService()

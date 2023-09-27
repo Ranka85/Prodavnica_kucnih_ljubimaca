@@ -1,18 +1,16 @@
-
-
-import { Card } from "../../components/Card"
+import { Card } from "../../../components/Card"
 import { useState, useEffect } from 'react';
-import { petService } from "../../service/pets";
-const { getAllBirds } = petService;
+import { petService } from "../../../service/pets";
+const { getAllFish } = petService;
 
-export const BirdsPage =()=>{          
+export const FishPage =()=>{          
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const result = await getAllBirds()
+            const result = await getAllFish()
 console.log(result);
             setData(result.data);
         } catch (err) {
@@ -30,9 +28,10 @@ console.log(result);
 
     if (!data)
         return <div>Loading...</div>;
+//return images with name 
     return (
         <div className="container">  
-            <h1>Birds</h1>
+            <h1>Fish</h1>
             <div className="row">
 
             {data.ads.map((character) => (

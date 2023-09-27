@@ -22,7 +22,7 @@ export const Card = ({ character }) =>
           <p><b>City: </b> {character.city}</p>
           <p className="mt-4"><b>location:</b> {character.address}</p>
           <p> <b>Phone Number: </b> {character.phone_number}</p>
-          <p> <b>Posted:</b> {character.created} </p>
+          {/* <p> <b>Posted:</b> {character.created} </p> */}
 
         </div>
       </div>

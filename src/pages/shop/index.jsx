@@ -1,8 +1,8 @@
 import { Card } from "../../components/Card";
 import { useState, useEffect } from 'react';
-import { petService } from "../../service/pets";
+import { adsService } from "../../service/ads";
 
-const { getAllAds } = petService;
+const { getAllAds } = adsService;
 
 export const ShopPage = () => {
   const [data, setData] = useState(null);
@@ -38,7 +38,6 @@ export const ShopPage = () => {
     <div>
       <h1 className="welcome-text">Welcome to our Pet Shop</h1>
       <div className="container">
-        {/* button to navigate to filter by type   */}
         <div className="row">
           <div className="col-lg-3 col-md-4 col-sm-6">
             <button className="btn" onClick={NavigateToPets}>Search by pet type</button>

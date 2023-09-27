@@ -1,9 +1,7 @@
 import { NavLink } from "react-router-dom";
-import { Outlet } from "react-router-dom";
 export const PetPage = () => {
     return (
         <div>
-            {/* <h1 className="welcome-text"></h1> */}
                 <p className="select-text">Please select a pet category to explore our offerings.</p>
 
         <div className="pic-with-text-container">
@@ -33,7 +31,6 @@ export const PetPage = () => {
         <p className="pet-text-shop"> rabbit</p>
   </NavLink>
         </div>
-        {/* <Outlet />   */}
 
             </div>
 

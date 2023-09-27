@@ -1,4 +1,7 @@
 import { AppLayout } from '../layout';
+import { useContext } from 'react';
+import { UserContext } from '../contexts/UserContext';
+import { Navigate } from 'react-router-dom';
 import { ShopPage } from '../pages/shop';
 import { WhoAreWePage } from '../pages/whoAreWe';
 import { HomePage } from '../pages/home';
@@ -6,15 +9,20 @@ import { LoginPage } from '../pages/login';
 import { RegisterPage } from '../pages/register';
 import { CityPage } from '../pages/city';
 import { PetPage } from '../pages/pets';
-import { DogsPage } from '../categories/dogs';
-import { CatsPage } from '../categories/cats';
-import { FishPage } from '../categories/fish';
-import { BirdsPage } from '../categories/birds';
-import { RabbitPage } from '../categories/rabbit';
+import { DogsPage } from '../pages/categories/dogs';
+import { CatsPage } from '../pages/categories/cats';
+import { FishPage } from '../pages/categories/fish';
+import { BirdsPage } from '../pages/categories/birds';
+import { RabbitPage } from '../pages/categories/rabbit';
 import { PostNewAdPage } from '../pages/postNewAd';
 import { UsersPage } from '../pages/users';
 
-import { ProtectedRoute } from './Routes';
+ const ProtectedRoute = ({ element }) => {
+  const { user } = useContext(UserContext);
+
+  return user?.id ? <>{element}</> : <Navigate to="/login" />;
+};
+
 
 export const appRoutes = [
   {
@@ -42,7 +50,7 @@ export const appRoutes = [
       },
 
       { path: 'whoAreWe', element: <WhoAreWePage /> },
-       { path: 'postNewAd', element:  /*<ProtectedRoute element={>*/<PostNewAdPage />/*}/>*/ },
+       { path: 'postNewAd', element:  <ProtectedRoute element={<PostNewAdPage />}/> },
        { path: 'city', element: <CityPage /> },
        { path: 'pet', element: <PetPage /> },
        { path: 'users', element: <UsersPage /> },

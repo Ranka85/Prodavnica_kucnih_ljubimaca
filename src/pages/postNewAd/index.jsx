@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import "./postAdd.css";
 import axios from 'axios';
+import { adsService } from "../../service/ads";
+import "./postAdd.css";
+const {getAllAds}= adsService;
+
 
 
 export const PostNewAdPage = () => {
@@ -15,7 +18,7 @@ export const PostNewAdPage = () => {
     image: "",
     pet_type: "",
     city:"",
-    created: null, 
+    // created: null, 
   });
 
 
@@ -48,20 +51,15 @@ const handleSubmit = async (e) => {
   setErrorFields({});
 
     const currentTime = new Date().toISOString();
-    setAdData({ ...adData, created: currentTime });
   const formData = new FormData();
   Object.keys(adData).forEach((key) => formData.append(key, adData[key]));
   if (image) {
     formData.append("image", image);
  }
- console.log("Sending Form Data:", formData);  
 
  try {
-   const response = await axios.post("https://pet.markodev.me/ads/", formData, {
-     headers: {
-       'Content-Type': 'multipart/form-data'
-     }
-   });
+       const response = await adsService.postNewAd(formData);
+
    console.log("Data sent successfully:", response.data);
     setIsSuccess(true);
     setTimeout(() => {
@@ -77,7 +75,7 @@ const handleSubmit = async (e) => {
         image:"",
 
         city:"",
-        created: null,
+        // created: null,
       });
       setIsSuccess(false);
       setIsError(false); 
@@ -120,18 +118,6 @@ const handleInputChange = (e) => {
   };
 
 
-  // const handleDelete = () => {
-  //   console.log("Ad deleted");
-  //   setAdData({
-  //     name: "",
-  //     category: "Cat",
-  //     age: "",
-  //     location: "",
-  //     phoneNumber: "",
-  //     about: "",
-  //     timestamp: null,
-  //   });
-  // };
 
   return (
     <div className="post-ad">

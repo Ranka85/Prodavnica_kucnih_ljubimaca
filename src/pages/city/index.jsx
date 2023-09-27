@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { axiosInstance } from "../../service/api";
 import { Card } from "../../components/Card";
-import style from './style.css';
+import './style.css';
 export const CityPage = () => {
   const [city, setCity] = useState('');
   const [petType, setPetType] = useState('');
@@ -11,10 +11,8 @@ export const CityPage = () => {
     console.log(city, petType)
     if (city && petType) {
       try {
-        console.log(`Fetching data for petType: ${petType}, city: ${city}`);
         const response = await axiosInstance.get(`pet_type_filter/${petType}/${city}`);
         setResults(response.data);
-        console.log("API Response:", response.data);
 
       } catch (error) {
         console.log("Error fetching data:", error);
