@@ -25,8 +25,9 @@ export const LoginPage = () => {
 
     try {
       
-      const body = JSON.stringify({ username, password });
-      // console.log(username, password)
+      const body = new FormData;
+      body.append("username", username)
+      body.append("password", password)
 
       const response = await getLoggedInUser(body);
       handleUserLogin(response.data.access_token);

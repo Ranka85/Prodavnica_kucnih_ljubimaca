@@ -8,7 +8,7 @@ import logo from '../assets/logo.png'
 
 export const NavBar=()=> {
     const {user, handlerUserLogout} = useContext(UserContext);
-
+    console.log(user)
   return (
    
 <Navbar expand="lg" className="bg-body-tertiary">
@@ -39,7 +39,7 @@ export const NavBar=()=> {
             <Nav.Link href="/Whoarewe">Who Are We  </Nav.Link>
           </Nav>
           <div className="actions">
-          {user?.id?(
+          {user?.user_id?(
           <button
           className="Sign-Out-Button"
           onClick={handlerUserLogout}

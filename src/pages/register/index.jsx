@@ -1,13 +1,13 @@
 import { useState, useContext } from 'react';
 import { authService } from '../../service/auth';
-import { UserContext } from '../../contexts/UserContext';
+// import { UserContext } from '../../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import './registerStyle.css';
 
 const { registerUser } = authService;
 
 export const RegisterPage = () => {
-  const { handleUserLogin } = useContext(UserContext);
+  // const { handleUserLogin } = useContext(UserContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
@@ -31,17 +31,12 @@ export const RegisterPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // console.log("API call is about to be made"); 
     registerUser(formData)
-      .then(response => {
-        console.log("API Response:", response.data);
-        // console.log("About to set isSuccess to true"); 
-  
-        handleUserLogin(response.data);
-        
-        setIsSuccess(true);  
-        navigate('/login');  
-      })
+    .then(response => {
+      handleUserLogin(response.data);
+      setIsSuccess(true);
+      navigate('/login');
+    })
       .catch(error => {
         // console.error("Registration failed: ", error);
         if (error.response && error.response.data) {

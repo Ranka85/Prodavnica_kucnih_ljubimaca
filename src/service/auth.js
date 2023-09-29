@@ -1,10 +1,10 @@
-import { nodeBackend } from './api';
+import { axiosInstance } from './api';
 
 class AuthService {
   
-  getLoggedInUser = async data => await nodeBackend.post('/login/', data);
+  getLoggedInUser = async data => await axiosInstance.post('login/', data);
 
-  registerUser = async data => await nodeBackend.post('/users/', data);
+  registerUser = async data => await axiosInstance.post('users/', data);
 }
 
 export const authService = new AuthService();

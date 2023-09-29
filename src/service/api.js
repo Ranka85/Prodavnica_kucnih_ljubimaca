@@ -3,11 +3,25 @@ import axios from 'axios';
 export const axiosInstance = axios.create({
   baseURL: 'https://pet.markodev.me/',
   timeout: 5000,
+  withCredentials: false
 });
 
 
 
 axiosInstance.interceptors.request.use(
+  config => {
+    const access_token = localStorage.getItem('access_token');
+    config.headers = {
+      Accept: 'application/json',
+    }
+    if (access_token)
+      config.headers = {
+        Authorization: `Bearer ${access_token}`,
+    
+      };
+
+    return config;
+  },
   (request) => {
     console.log('Starting Request', JSON.stringify(request, null, 2));
     return request;
@@ -19,6 +33,8 @@ axiosInstance.interceptors.request.use(
 );
 
 axiosInstance.interceptors.response.use(
+
+
   (response) => {
     console.log('Response:', JSON.stringify(response, null, 2));
     return response;
@@ -30,32 +46,4 @@ axiosInstance.interceptors.response.use(
 );
 
 
-
-export const nodeBackend = axios.create({
-    baseURL: "https://pet.markodev.me",
-    timeout: 5000,
-    withCredentials: false,
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-  });
-
-
-  
-  nodeBackend.interceptors.request.use(
-    config => {
-      const access_token = localStorage.getItem('access_token');
-  
-      if (access_token)
-        config.headers = {
-          Authorization: `Bearer ${access_token}`,
-          // Accept: 'application/json',
-
-        };
-  
-      return config;
-    },
-    error => Promise.reject(error)
-  );
 
