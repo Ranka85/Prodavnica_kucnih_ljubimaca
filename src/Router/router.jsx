@@ -51,7 +51,7 @@ export const appRoutes = [
       },
 
       { path: 'whoAreWe', element: <WhoAreWePage /> },
-       { path: 'postNewAd', element:<ProtectedRoute element={<PostNewAdPage />}/>},
+       { path: 'postNewAd', element:<PostNewAdPage/>/*<ProtectedRoute element={<PostNewAdPage />}/>*/},
        { path: 'city', element: <CityPage /> },
        { path: 'pet', element: <PetPage /> },
        { path: 'users', element: <UsersPage /> },

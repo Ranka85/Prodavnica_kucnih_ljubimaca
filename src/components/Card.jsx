@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import placeholderImage from "../assets/noPicture.jpg";
+import placeholderImage from "../assets/noPicture.png";
 
 export const Card = ({ character }) => {
   console.log("CHAR: character", character);
