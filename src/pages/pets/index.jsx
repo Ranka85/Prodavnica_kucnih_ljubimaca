@@ -1,4 +1,8 @@
 import { NavLink } from "react-router-dom";
+import dogPic from '../../assets/dog.jpg';
+import birdPic from '../../assets/bird.jpg';
+import catPic from '../../assets/cat.jpg';
+import rabbitPic from '../../assets/rabbit.jpg';
 export const PetPage = () => {
     return (
         <div>
@@ -6,17 +10,17 @@ export const PetPage = () => {
 
         <div className="pic-with-text-container">
         <div className="dogs-shop">
-           < NavLink to="/shop/dogs" > <img src="https://www.dailypaws.com/thmb/-p5VyaOMxdnepW4PwgbPqFe_Ba0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/rottweiler-headshot-678833089-2000-e87e6d01c6964debad70bedee2094120.jpg" alt="" className="dog-img-shop" />
+           < NavLink to="/shop/dogs" > <img src={dogPic} alt="" className="dog-img-shop" />
            <p className="pet-text-shop"> dogs</p>  </NavLink>
         </div>
 
         <div className="cats-shop">
-        < NavLink to="/shop/cats" > <img src="https://hips.hearstapps.com/hmg-prod/images/beautiful-smooth-haired-red-cat-lies-on-the-sofa-royalty-free-image-1678488026.jpg" alt="" className="cat-img-shop" />
+        < NavLink to="/shop/cats" > <img src={catPic} alt="" className="cat-img-shop" />
         <p className="pet-text-shop"> cats</p>  </NavLink>
         </div>
 
         <div className="birds-shop">
-        < NavLink to="/shop/birds" > <img src="https://images.unsplash.com/photo-1606567595334-d39972c85dbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmlyZHxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" alt="" className="bird-img-shop" />
+        < NavLink to="/shop/birds" > <img src={birdPic} alt="" className="bird-img-shop" />
         <p className="pet-text-shop"> birds</p>  </NavLink>
         </div>
 
@@ -27,7 +31,7 @@ export const PetPage = () => {
         </div>
 
         <div className="rabbit-shop rab-fish">
-        < NavLink to="/shop/rabbit" > <img src="https://t3.ftcdn.net/jpg/02/47/33/08/360_F_247330858_RvSJWAhMbfrqsM5VUmjLD4gzzSKUaJls.jpg" alt="" className="rabbit-img-shop" />
+        < NavLink to="/shop/rabbit" > <img src={rabbitPic} alt="" className="rabbit-img-shop" />
         <p className="pet-text-shop"> rabbit</p>
   </NavLink>
         </div>
