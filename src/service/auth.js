@@ -6,6 +6,5 @@ class AuthService {
 
   registerUser = async data => await nodeBackend.post('/users/', data);
 }
-console.log("Debugging Axios Config:", nodeBackend.defaults);
 
 export const authService = new AuthService();

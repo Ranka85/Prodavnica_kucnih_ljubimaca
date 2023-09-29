@@ -12,7 +12,7 @@ export const ShopPage = () => {
     const fetchData = async () => {
       try {
         const result = await getAllAds();
-        console.log(result);
+        // console.log(result);
         setData(result.data);
       } catch (err) {
         setError(err);

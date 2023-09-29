@@ -4,7 +4,7 @@ import { axiosInstance } from "./api"
 class UserService{
     getAllUsers = async () => await axiosInstance.get("users/")
 
-    getUser = async (id) => await axiosInstance.get(`users/${id}/`)
+    getUserAds = async (id) => await axiosInstance.get(`users/${id}/user_ads/`)
 
 }
 

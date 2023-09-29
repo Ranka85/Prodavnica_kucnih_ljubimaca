@@ -50,7 +50,7 @@ export const nodeBackend = axios.create({
       if (access_token)
         config.headers = {
           Authorization: `Bearer ${access_token}`,
-          Accept: 'application/json',
+          // Accept: 'application/json',
 
         };
   

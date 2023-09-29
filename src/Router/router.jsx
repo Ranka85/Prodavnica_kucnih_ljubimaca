@@ -16,6 +16,7 @@ import { BirdsPage } from '../pages/categories/birds';
 import { RabbitPage } from '../pages/categories/rabbit';
 import { PostNewAdPage } from '../pages/postNewAd';
 import { UsersPage } from '../pages/users';
+import { UserPets } from '../pages/userPets';
 
  const ProtectedRoute = ({ element }) => {
   const { user } = useContext(UserContext);
@@ -50,10 +51,11 @@ export const appRoutes = [
       },
 
       { path: 'whoAreWe', element: <WhoAreWePage /> },
-       { path: 'postNewAd', element:  <ProtectedRoute element={<PostNewAdPage />}/> },
+       { path: 'postNewAd', element:<PostNewAdPage/>  /*<ProtectedRoute element={<PostNewAdPage />}/> */},
        { path: 'city', element: <CityPage /> },
        { path: 'pet', element: <PetPage /> },
        { path: 'users', element: <UsersPage /> },
+        { path: 'user/:id/userPets', element: <UserPets /> },
 
        { path: '*', element: <h1>404 Not found</h1> },
     

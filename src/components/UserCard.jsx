@@ -10,7 +10,7 @@ export const UserCard = ({ user }) => {
  const navigate = useNavigate(); 
 
     const handleCardClick = () => {
-        navigate(`/user/${user.id}/`);
+      navigate(`/user/${user.id}/userPets`);
    
 
     };
