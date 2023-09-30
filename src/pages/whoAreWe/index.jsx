@@ -2,7 +2,6 @@ import Carousel from "react-bootstrap/Carousel";
 import "./whoCss.css";
 
 export const WhoAreWePage = () => {
-
   return (
     <Carousel data-bs-theme="dark">
       <Carousel.Item>
@@ -71,14 +70,12 @@ export const WhoAreWePage = () => {
           <div className="d-first">
             <div className="p1-par p22-par">
               If you have any questions, concerns, or simply need guidance on
-            navigating our platform, don't hesitate to reach out. Our dedicated
-            support team is always ready to assist you. <hr />Feel free to email us at
-            "rankapejanovic85@gmail.com"—we're here to make your pet journey as
-            seamless as possible.
+              navigating our platform, don't hesitate to reach out. Our
+              dedicated support team is always ready to assist you. <hr />
+              Feel free to email us at "rankapejanovic85@gmail.com"—we're here
+              to make your pet journey as seamless as possible.
             </div>
-
-            </div>
-       
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import placeholderImage from "../assets/noPicture.png";
 
 export const Card = ({ character }) => {
-  console.log("CHAR: character", character);
   return (
     <div className="card" style={{ height: 550 }}>
       <div className="row">

@@ -1,95 +1,90 @@
-#img-slide{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+#img-slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.h5-first, .h5-second{
-    font-size: 1.6em;
-    font-weight: bold;
-    text-align: center;
-    display: grid;
-    place-items: center;
-    margin-top: 10px;
+.h5-first,
+.h5-second {
+  font-size: 1.6em;
+  font-weight: bold;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
 }
 
 .custom-caption {
-    position: absolute;
-    top: 0; /* Align to top */
-    right: 0;
-    left: 0;
-    padding: 10px;
-    margin-top: 10px;
-  }
-
-.d-first{
-    display: flex;
-    justify-content: center;
-    margin:20px 90px;
-    font-size: 1.2em;
-    /* font-weight: bold; */
-    text-align: center;
-    margin-top: 10px;
+  position: absolute;
+  top: 0; /* Align to top */
+  right: 0;
+  left: 0;
+  padding: 10px;
+  margin-top: 10px;
 }
 
-.for-text{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
+.d-first {
+  display: flex;
+  justify-content: center;
+  margin: 20px 90px;
+  font-size: 1.2em;
+  /* font-weight: bold; */
+  text-align: center;
+  margin-top: 10px;
 }
 
-.p1-par, .p2-par,.p3-par{
-    border-radius: 6px;
-    background-color: rgb(250, 215, 232);
-    padding: 5px;
-    
-    margin: 10px;
-    /* add border shadow */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+.for-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.p22-par{
+.p1-par,
+.p2-par,
+.p3-par {
+  border-radius: 6px;
+  background-color: rgb(250, 215, 232);
+  padding: 5px;
 
-    margin-top: 50px;
-    margin-bottom: 20px;
-    
+  margin: 10px;
+  /* add border shadow */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.p22-par {
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 /* media for phone maqx 480 */
 
 @media only screen and (max-width: 480px) {
-    #img.slide{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  #img.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-    .first-img{
-        display: none;
-    }
-    .h5-first, .h5-second{
-        font-size: 1.0em;
-    }
+  .first-img {
+    display: none;
+  }
+  .h5-first,
+  .h5-second {
+    font-size: 1em;
+  }
 
-    .p1-par,.p2-par,.p3-par{
-        font-size: 0.5em;
-        
-    }
+  .p1-par,
+  .p2-par,
+  .p3-par {
+    font-size: 0.5em;
+  }
 
-    .d-first{
-        font-size: 0.8em;
-        margin-left:-5vw ;
-        margin-right: -5vw;
+  .d-first {
+    font-size: 0.8em;
+    margin-left: -5vw;
+    margin-right: -5vw;
+  }
 
-
-    }
-
-    .p22-par{
-        margin: 10%;
-
-    }
-
-
-
-
+  .p22-par {
+    margin: 10%;
+  }
 }

@@ -1,10 +1,10 @@
 import { Card } from "../../../components/Card";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { petService } from "../../../service/pets";
 
-const { getAllCats } = petService;  
+const { getAllCats } = petService;
 
-export const CatsPage = () => {  
+export const CatsPage = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -12,7 +12,7 @@ export const CatsPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await getAllCats(); 
+        const result = await getAllCats();
         setData(result.data);
       } catch (err) {
         setError(err);
@@ -24,13 +24,13 @@ export const CatsPage = () => {
   if (error) return <div>Error: {error.message}</div>;
   if (!data) return <div>Loading...</div>;
 
-  const catsToDisplay = data.ads.slice((currentPage - 1) * 8, currentPage * 8);  
+  const catsToDisplay = data.ads.slice((currentPage - 1) * 8, currentPage * 8);
 
   return (
     <div className="container">
-      <h1>Cats</h1> 
+      <h1>Cats</h1>
       <div className="row">
-        {catsToDisplay.map((character) => (  
+        {catsToDisplay.map((character) => (
           <div className="col-lg-3 col-md-4 col-sm-6" key={character.id}>
             <Card character={character} />
           </div>
@@ -38,10 +38,22 @@ export const CatsPage = () => {
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         {currentPage > 1 && (
-          <button onClick={() => setCurrentPage(currentPage - 1)} className="button-prev-next"> Prev </button>
+          <button
+            onClick={() => setCurrentPage(currentPage - 1)}
+            className="button-prev-next"
+          >
+            {" "}
+            Prev{" "}
+          </button>
         )}
-        { (currentPage - 1) * 8 + catsToDisplay.length < data.ads.length && ( 
-          <button onClick={() => setCurrentPage(currentPage + 1)} className="button-prev-next"> Next </button>
+        {(currentPage - 1) * 8 + catsToDisplay.length < data.ads.length && (
+          <button
+            onClick={() => setCurrentPage(currentPage + 1)}
+            className="button-prev-next"
+          >
+            {" "}
+            Next{" "}
+          </button>
         )}
       </div>
     </div>

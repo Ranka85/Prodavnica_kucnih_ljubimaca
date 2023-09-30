@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import axios from 'axios';
 import { adsService } from "../../service/ads";
 import "./postAdd.css";
-const {getAllAds}= adsService;
-
-
+const { getAllAds } = adsService;
 
 export const PostNewAdPage = () => {
   const [adData, setAdData] = useState({
@@ -17,107 +14,98 @@ export const PostNewAdPage = () => {
     description: "",
     image: "",
     pet_type: "",
-    city:"",
-    // created: null, 
+    city: "",
+    // created: null,
   });
 
-
   const petTypes = {
-    'Dog': 1,
-    'Cat': 2,
-    'Bird': 3,
-    'Fish': 4,
-    'Rabbit': 5
+    Dog: 1,
+    Cat: 2,
+    Bird: 3,
+    Fish: 4,
+    Rabbit: 5,
   };
 
-  const Cities={
-    'Podgorica':1,
-    'Nikšić':2,
-    'Berane':3
-  }
-  
+  const Cities = {
+    Podgorica: 1,
+    Nikšić: 2,
+    Berane: 3,
+  };
+
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
   const [errorFields, setErrorFields] = useState({});
   const [image, setImage] = useState(null);
 
-
-  
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsSuccess(false);
-  setIsError(false);
-  setErrorFields({});
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSuccess(false);
+    setIsError(false);
+    setErrorFields({});
 
     const currentTime = new Date().toISOString();
-  const formData = new FormData();
-  Object.keys(adData).forEach((key) => formData.append(key, adData[key]));
-  if (image) {
-    formData.append("image", image);
- }
+    const formData = new FormData();
+    Object.keys(adData).forEach((key) => formData.append(key, adData[key]));
+    if (image) {
+      formData.append("image", image);
+    }
 
- try {
-       const response = await adsService.postNewAd(formData);
+    try {
+      const response = await adsService.postNewAd(formData);
 
-   console.log("Data sent successfully:", response.data);
-    setIsSuccess(true);
-    setTimeout(() => {
-      setAdData({
-        ad_title: "",
-        phone_number: "",
-        price: "",
-        address: "",
-        user: "",
-        pet_date_of_birth: "",
-        description: "",
-        pet_type: "",
-        image:"",
+      console.log("Data sent successfully:", response.data);
+      setIsSuccess(true);
+      setTimeout(() => {
+        setAdData({
+          ad_title: "",
+          phone_number: "",
+          price: "",
+          address: "",
+          user: "",
+          pet_date_of_birth: "",
+          description: "",
+          pet_type: "",
+          image: "",
 
-        city:"",
-        // created: null,
-      });
-      setIsSuccess(false);
-      setIsError(false); 
-    }, 3000); 
+          city: "",
+          // created: null,
+        });
+        setIsSuccess(false);
+        setIsError(false);
+      }, 3000);
+    } catch (error) {
+      console.error("Error sending data:", error);
+      setIsError(true);
+      if (error.response) {
+        setErrorFields(error.response.data);
+        console.log("Server responded with status:", error.response.status);
+        console.log("Error data:", error.response.data);
+      }
+    }
+  };
 
- } catch (error) {
-   console.error("Error sending data:", error);
-    setIsError(true);
-   if (error.response) {
-      setErrorFields(error.response.data);
-     console.log('Server responded with status:', error.response.status);
-     console.log('Error data:', error.response.data);
-   }
- }
-};
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    let finalValue = value;
 
+    if (name === "pet_type") {
+      finalValue = petTypes[value];
+    }
 
-const handleInputChange = (e) => {
-  
-  const { name, value } = e.target;
-  let finalValue = value;
-  
-  if (name === "pet_type") {
-    finalValue = petTypes[value];
-  }
+    if (name === "city") {
+      finalValue = Cities[value];
+    }
 
-  if (name === "city") {
-    finalValue = Cities[value];
-  }
-
-  setAdData({
-    ...adData,
-    [name]: finalValue,
-  });
-};
+    setAdData({
+      ...adData,
+      [name]: finalValue,
+    });
+  };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setImage(file);
   };
-
-
 
   return (
     <div className="post-ad">
@@ -125,7 +113,11 @@ const handleInputChange = (e) => {
         <h2 className="text-ad">Post a New Ad</h2>
         <form onSubmit={handleSubmit} className="form-postAd">
           <input
-          style={{ border: errorFields.ad_title ? '3px solid red' : '1px solid black' }}
+            style={{
+              border: errorFields.ad_title
+                ? "3px solid red"
+                : "1px solid black",
+            }}
             type="text"
             name="ad_title"
             placeholder="Pet Name"
@@ -138,9 +130,11 @@ const handleInputChange = (e) => {
             onChange={handleInputChange}
             required
             className="input-ad"
-            
           >
-            <option selected disabled hidden> Pet Type</option>
+            <option selected disabled hidden>
+              {" "}
+              Pet Type
+            </option>
             <option value="Dog">Dog</option>
             <option value="Cat">Cat</option>
             <option value="Bird">Bird</option>
@@ -149,7 +143,11 @@ const handleInputChange = (e) => {
           </select>
           <p className="pet-date">pet date of birth:</p>
           <input
-          style={{ border: errorFields.pet_date_of_birth ? '3px solid red' : '1px solid black' }}
+            style={{
+              border: errorFields.pet_date_of_birth
+                ? "3px solid red"
+                : "1px solid black",
+            }}
             className="input-ad"
             type="date"
             name="pet_date_of_birth"
@@ -158,22 +156,25 @@ const handleInputChange = (e) => {
             onChange={handleInputChange}
             required
           />
-         
-         <select
+
+          <select
             name="city"
             onChange={handleInputChange}
             required
             className="input-ad"
-          
           >
-            <option selected disabled hidden> City</option>
+            <option selected disabled hidden>
+              {" "}
+              City
+            </option>
             <option value="Podgorica">Podgorica</option>
             <option value="Nikšić">Niksic</option>
             <option value="Berane">Berane</option>
-           
           </select>
           <input
-          style={{ border: errorFields.address ? '3px solid red' : '1px solid black' }}
+            style={{
+              border: errorFields.address ? "3px solid red" : "1px solid black",
+            }}
             className="input-ad"
             type="text"
             name="address"
@@ -183,7 +184,11 @@ const handleInputChange = (e) => {
             // required
           />
           <input
-          style={{ border: errorFields.phone_number ? '3px solid red' : '1px solid black' }}
+            style={{
+              border: errorFields.phone_number
+                ? "3px solid red"
+                : "1px solid black",
+            }}
             className="input-ad"
             type="text"
             name="phone_number"
@@ -193,51 +198,53 @@ const handleInputChange = (e) => {
             required
           />
           <input
-          style={{ border: errorFields.price ? '3px solid red' : '1px solid black' }}
+            style={{
+              border: errorFields.price ? "3px solid red" : "1px solid black",
+            }}
             className="input-ad"
             type="number"
             name="price"
             placeholder="Price"
             value={adData.price}
             onChange={handleInputChange}
-            required
           />
 
-          <input 
-          style={{ border: errorFields.user ? '3px solid red' : '1px solid black' }}
-          className="input-ad"
-          type="text" 
-          name="user"
-          placeholder="user"
-          value={adData.user}
-          onChange={handleInputChange}
-          required
-          />
-          <div className="ad-img-div">
-          <p className="p-img">image of your pet</p>
           <input
-            style={{ border: errorFields.user ? '3px solid red' : '1px solid black' }}        
-            className="img-ad"
-            type="file"
-            name="image"
-            onChange={handleImageChange}
+            style={{
+              border: errorFields.user ? "3px solid red" : "1px solid black",
+            }}
+            className="input-ad"
+            type="text"
+            name="user"
+            placeholder="user"
+            value={adData.user}
+            onChange={handleInputChange}
             required
           />
+          <div className="ad-img-div">
+            <p className="p-img">image of your pet</p>
+            <input
+              style={{
+                border: errorFields.user ? "3px solid red" : "1px solid black",
+              }}
+              className="img-ad"
+              type="file"
+              name="image"
+              onChange={handleImageChange}
+            />
           </div>
-      
+
           <textarea
             className="input-ad"
             name="description"
             placeholder="About the Ad"
             value={adData.description}
             onChange={handleInputChange}
-            required
           ></textarea>
 
           <button type="submit" className="button-ad">
             Post Ad
           </button>
-
         </form>
         <div className="post-ad">
           {isSuccess && (
@@ -245,11 +252,8 @@ const handleInputChange = (e) => {
           )}
           {isError && (
             <p className="p-ad-er">There was an error posting your ad.</p>
-      
           )}
-
         </div>
-      
       </div>
     </div>
   );
