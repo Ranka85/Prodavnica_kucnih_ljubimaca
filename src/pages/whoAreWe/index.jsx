@@ -72,7 +72,7 @@ export const WhoAreWePage = () => {
               If you have any questions, concerns, or simply need guidance on
               navigating our platform, don't hesitate to reach out. Our
               dedicated support team is always ready to assist you. <hr />
-              Feel free to email us at "rankapejanovic85@gmail.com"—we're here
+              Feel free to email us at   <a href="mailto:rankapejanovic85@gmail.com" style={{color:"red"}}>rankapejanovic85@gmail.com</a>—we're here
               to make your pet journey as seamless as possible.
             </div>
           </div>
