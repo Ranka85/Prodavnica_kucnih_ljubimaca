@@ -542,3 +542,52 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (min-width: 1280px) {
+  .dog-img,
+.bird-img,
+.cat-img,
+.rabbit-img,
+.fish-img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 5px 0px rgba(212, 134, 134, 0.75);
+  cursor: pointer;
+}
+.pets{
+  margin-top: 90px;
+  margin-bottom: 40px;
+}
+
+.post-free-ad{
+  height: 550px;
+  margin-top: 5%;
+}
+
+.post-free-button{
+  margin-left: 45%;
+  margin-top: 7%;
+ 
+}
+
+.buying-pet-button,
+.selling-pet-button {
+  margin-left: 70px;
+  margin-top: 30px;
+}
+.looking-for-div{
+  height: 600px;
+}
+
+.welcome-text{
+  height: 70px;
+  font-size: 3em;
+}
+.btn{
+  margin-left: 40%;
+  margin-bottom: 10px;
+}
+
+}

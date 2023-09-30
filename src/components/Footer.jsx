@@ -35,7 +35,18 @@ export const Footer = () => {
             <Column>
               <Heading>Social Media</Heading>
               <FooterLink href="#">Instagram</FooterLink>
+              {/* <i className="fab fa-instagram">
+				<span style={{ marginLeft: "10px" }}>
+				Instagram
+				</span>
+			</i> */}
+
               <FooterLink href="#">Facebook</FooterLink>
+              {/* <i className="fab fa-facebook-f">
+				<span style={{ marginLeft: "10px" }}>
+				Facebook
+				</span>
+			</i> */}
             </Column>
             <Column>
               <Heading>Help</Heading>

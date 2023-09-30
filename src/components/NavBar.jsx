@@ -28,7 +28,7 @@ export const NavBar = () => {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/shop">Shop</Nav.Link>
 
-            <Nav.Link href="/postNewAd">Post New Ad </Nav.Link>
+            <Nav.Link href="/postnewad">Post New Ad </Nav.Link>
             <Nav.Link href="/Whoarewe">Who Are We </Nav.Link>
           </Nav>
           <div className="actions">

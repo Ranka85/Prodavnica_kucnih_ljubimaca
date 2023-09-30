@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { adsService } from "../../service/ads";
 import "./postAdd.css";
-const { getAllAds } = adsService;
 
 export const PostNewAdPage = () => {
   const [adData, setAdData] = useState({
@@ -181,7 +180,6 @@ export const PostNewAdPage = () => {
             placeholder="Address"
             value={adData.address}
             onChange={handleInputChange}
-            // required
           />
           <input
             style={{
