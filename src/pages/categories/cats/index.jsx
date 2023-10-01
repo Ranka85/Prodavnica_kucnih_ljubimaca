@@ -2,7 +2,7 @@ import { Card } from "../../../components/Card";
 import { useState, useEffect } from "react";
 import { petService } from "../../../service/pets";
 
-const { getAllCats } = petService;
+const { getAdsByPetType } = petService;
 
 export const CatsPage = () => {
   const [data, setData] = useState(null);
@@ -12,8 +12,8 @@ export const CatsPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await getAllCats();
-        setData(result.data);
+        const result = await getAdsByPetType('Cat');
+        setData(result.filtered_ads);
       } catch (err) {
         setError(err);
       }
@@ -24,14 +24,14 @@ export const CatsPage = () => {
   if (error) return <div>Error: {error.message}</div>;
   if (!data) return <div>Loading...</div>;
 
-  const catsToDisplay = data.ads.slice((currentPage - 1) * 8, currentPage * 8);
+  const catsToDisplay = data ? data.slice((currentPage - 1) * 8, currentPage * 8) : [];
 
   return (
     <div className="container">
       <h1>Cats</h1>
       <div className="row">
         {catsToDisplay.map((character) => (
-          <div className="col-lg-3 col-md-4 col-sm-6" key={character.id}>
+          <div className="col-lg-3 col-md-4 col-sm-6" key={character.ad_title}>
             <Card character={character} />
           </div>
         ))}
@@ -46,7 +46,7 @@ export const CatsPage = () => {
             Prev{" "}
           </button>
         )}
-        {(currentPage - 1) * 8 + catsToDisplay.length < data.ads.length && (
+      {data && (currentPage - 1) * 8 + catsToDisplay.length < data.length && ( 
           <button
             onClick={() => setCurrentPage(currentPage + 1)}
             className="button-prev-next"

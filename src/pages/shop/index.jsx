@@ -1,10 +1,14 @@
 import { Card } from "../../components/Card";
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from 'react';
 import { adsService } from "../../service/ads";
+import { UserContext } from "../../contexts/UserContext";
 
 const { getAllAds } = adsService;
 
+
 export const ShopPage = () => {
+  const { user } = useContext(UserContext);
+
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -49,7 +53,7 @@ export const ShopPage = () => {
         <div className="row">
           {adsToDisplay.map((character) => (
             <div className="col-lg-3 col-md-4 col-sm-6" key={character.id}>
-              <Card character={character} />
+          <Card character={character} currentUsername={user ? user.username : null} />
             </div>
           ))}
         </div>

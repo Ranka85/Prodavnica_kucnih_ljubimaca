@@ -1,21 +1,34 @@
 import React, { useState } from "react";
 import { adsService } from "../../service/ads";
+import { useContext, useEffect } from "react";
+import { UserContext } from "../../contexts/UserContext";
 import "./postAdd.css";
 
 export const PostNewAdPage = () => {
+  const { user } = useContext(UserContext);
+
   const [adData, setAdData] = useState({
     ad_title: "",
     phone_number: "",
     price: "",
     address: "",
-    user: "",
     pet_date_of_birth: "",
     description: "",
     image: "",
     pet_type: "",
     city: "",
+    user: user ? user.user_id : null,
+
     // created: null,
   });
+  useEffect(() => {
+    if (user) {
+      setAdData((prevData) => ({
+        ...prevData,
+        user: user ? user.user_id : null,
+      }));
+    }
+  }, [user]);
 
   const petTypes = {
     Dog: 1,
@@ -44,15 +57,22 @@ export const PostNewAdPage = () => {
 
     const currentTime = new Date().toISOString();
     const formData = new FormData();
+
     Object.keys(adData).forEach((key) => formData.append(key, adData[key]));
-    if (image) {
-      formData.append("image", image);
-    }
 
     try {
+      const formData = new FormData();
+      Object.keys(adData).forEach((key) => formData.append(key, adData[key]));
+      if (image) {
+        formData.append("image", image);
+      }
+
+      if (user && user.user_id) {
+        formData.append("user", user.user_id);
+      }
+
       const response = await adsService.postNewAd(formData);
 
-      console.log("Data sent successfully:", response.data);
       setIsSuccess(true);
       setTimeout(() => {
         setAdData({
@@ -60,14 +80,12 @@ export const PostNewAdPage = () => {
           phone_number: "",
           price: "",
           address: "",
-          user: "",
           pet_date_of_birth: "",
           description: "",
           pet_type: "",
           image: "",
-
-          city: "",
-          // created: null,
+          city: "City",
+          user: user ? user.user_id : null,
         });
         setIsSuccess(false);
         setIsError(false);
@@ -77,8 +95,6 @@ export const PostNewAdPage = () => {
       setIsError(true);
       if (error.response) {
         setErrorFields(error.response.data);
-        console.log("Server responded with status:", error.response.status);
-        console.log("Error data:", error.response.data);
       }
     }
   };
@@ -127,12 +143,13 @@ export const PostNewAdPage = () => {
           <select
             name="pet_type"
             onChange={handleInputChange}
+            defaultValue=""
             required
             className="input-ad"
           >
-            <option selected disabled hidden>
+            <option value="" disabled hidden>
               {" "}
-              Pet Type
+              Pet Type{" "}
             </option>
             <option value="Dog">Dog</option>
             <option value="Cat">Cat</option>
@@ -140,6 +157,7 @@ export const PostNewAdPage = () => {
             <option value="Fish">Fish</option>
             <option value="Rabbit">Rabbit</option>
           </select>
+
           <p className="pet-date">pet date of birth:</p>
           <input
             style={{
@@ -159,16 +177,19 @@ export const PostNewAdPage = () => {
           <select
             name="city"
             onChange={handleInputChange}
+            defaultValue=""
             required
             className="input-ad"
           >
-            <option selected disabled hidden>
+            <option value="" disabled hidden>
               {" "}
-              City
+              City{" "}
             </option>
             <option value="Podgorica">Podgorica</option>
-            <option value="Nikšić">Niksic</option>
+            <option value="Nikšić">Nikšić</option>
             <option value="Berane">Berane</option>
+            
+        
           </select>
           <input
             style={{
@@ -207,7 +228,7 @@ export const PostNewAdPage = () => {
             onChange={handleInputChange}
           />
 
-          <input
+          {/* <input
             style={{
               border: errorFields.user ? "3px solid red" : "1px solid black",
             }}
@@ -218,7 +239,7 @@ export const PostNewAdPage = () => {
             value={adData.user}
             onChange={handleInputChange}
             required
-          />
+          /> */}
           <div className="ad-img-div">
             <p className="p-img">image of your pet</p>
             <input

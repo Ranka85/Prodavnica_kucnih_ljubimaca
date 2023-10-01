@@ -32,7 +32,7 @@ export const LoginPage = () => {
       handleUserLogin(response.data.access_token);
       navigate("/");
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

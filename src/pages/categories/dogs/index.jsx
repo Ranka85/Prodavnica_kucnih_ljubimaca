@@ -2,7 +2,7 @@ import { Card } from "../../../components/Card";
 import { useState, useEffect } from "react";
 import { petService } from "../../../service/pets";
 
-const { getAllDogs } = petService;
+const { getAdsByPetType } = petService;
 
 export const DogsPage = () => {
   const [data, setData] = useState(null);
@@ -12,8 +12,8 @@ export const DogsPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await getAllDogs();
-        setData(result.data);
+        const result = await getAdsByPetType("Dog");
+        setData(result.filtered_ads);
       } catch (err) {
         setError(err);
       }
@@ -24,14 +24,16 @@ export const DogsPage = () => {
   if (error) return <div>Error: {error.message}</div>;
   if (!data) return <div>Loading...</div>;
 
-  const dogsToDisplay = data.ads.slice((currentPage - 1) * 8, currentPage * 8);
+  const dogsToDisplay = data
+    ? data.slice((currentPage - 1) * 8, currentPage * 8)
+    : [];
 
   return (
     <div className="container">
       <h1>Dogs</h1>
       <div className="row">
         {dogsToDisplay.map((character) => (
-          <div className="col-lg-3 col-md-4 col-sm-6" key={character.id}>
+          <div className="col-lg-3 col-md-4 col-sm-6" key={character.ad_title}>
             <Card character={character} />
           </div>
         ))}
@@ -46,7 +48,7 @@ export const DogsPage = () => {
             Prev{" "}
           </button>
         )}
-        {(currentPage - 1) * 8 + dogsToDisplay.length < data.ads.length && (
+        {data && (currentPage - 1) * 8 + dogsToDisplay.length < data.length && (
           <button
             onClick={() => setCurrentPage(currentPage + 1)}
             className="button-prev-next"

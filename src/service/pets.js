@@ -1,17 +1,12 @@
 import { axiosInstance } from "./api"
 
 class PetService {
-    getAllDogs = async () => await axiosInstance.get("pet_type_filter/Dog")
-
-    getAllCats = async () => await axiosInstance.get("pet_type_filter/Cat")
-    
-    getAllBirds = async () => await axiosInstance.get("pet_type_filter/Bird")
-
-    getAllFish = async () => await axiosInstance.get("pet_type_filter/Fish")
-
-    getAllRabbits = async () => await axiosInstance.get("pet_type_filter/Rabbit")
-    
-
+  getAdsByPetType = async (petType) => {
+    const response = await axiosInstance.post('ad_filter/', {
+      pet_type: petType
+    });
+    return response.data;
+  };
 }
 
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { axiosInstance } from "../../service/api";
 import { Card } from "../../components/Card";
 import "./style.css";
+
 export const CityPage = () => {
   const [city, setCity] = useState("");
   const [petType, setPetType] = useState("");
@@ -10,10 +11,12 @@ export const CityPage = () => {
   const fetchResults = async () => {
     if (city && petType) {
       try {
-        const response = await axiosInstance.get(
-          `pet_type_filter/${petType}/${city}`
-        );
-        setResults(response.data);
+        const response = await axiosInstance.post(`ad_filter/`, {
+          city,
+          pet_type: petType,
+
+        });
+        setResults(response.data.filtered_ads);
       } catch (error) {
         console.error(error);
       }
@@ -24,11 +27,13 @@ export const CityPage = () => {
     fetchResults();
   }, [city, petType]);
 
+
   return (
     <div className="container">
       <div className="buttons">
         <div className="select-div">
           <select
+            value={city}
             className="select-city"
             onChange={(e) => setCity(e.target.value)}
           >
@@ -42,6 +47,7 @@ export const CityPage = () => {
           </select>
 
           <select
+           value={petType}
             className="select-pet"
             onChange={(e) => setPetType(e.target.value)}
           >
@@ -64,14 +70,14 @@ export const CityPage = () => {
             Search
           </button>
         </div>
-        {results && results.ads ? (
-          <div className="result-div">
-            {results.ads.map((character, index) => (
-              <div className="col-lg-3 col-md-4 col-sm-6">
-                <Card key={index} character={character} />
-              </div>
-            ))}
-          </div>
+        {results.length > 0 ? ( 
+        <div className="result-div">
+          {results.map((ad, index) => (  
+            <div className="col-lg-3 col-md-4 col-sm-6">
+              <Card key={index} character={ad} />  
+            </div>
+          ))}
+        </div>
         ) : (
           <div className="no-results">
             <h1>No results</h1>

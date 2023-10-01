@@ -1,13 +1,13 @@
 import { useState, useContext } from "react";
 import { authService } from "../../service/auth";
-import { UserContext } from "../../contexts/UserContext";
+// import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import "./registerStyle.css";
 
 const { registerUser } = authService;
 
 export const RegisterPage = () => {
-  const { handleUserLogin } = useContext(UserContext);
+  // const { handleUserLogin } = useContext(UserContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -33,7 +33,7 @@ export const RegisterPage = () => {
 
     registerUser(formData)
       .then((response) => {
-        handleUserLogin(response.data);
+        // handleUserLogin(response.data);
         setIsSuccess(true);
         navigate("/login");
       })
