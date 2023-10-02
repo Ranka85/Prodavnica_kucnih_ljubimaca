@@ -17,6 +17,7 @@ import { RabbitPage } from "../pages/categories/rabbit";
 import { PostNewAdPage } from "../pages/postNewAd";
 import { UsersPage } from "../pages/users";
 import { UserPets } from "../pages/userPets";
+import { AdminPage } from "../pages/admin";
 
 const ProtectedRoute = ({ element }) => {
   const { user } = useContext(UserContext);
@@ -62,5 +63,6 @@ export const appRoutes = [
   },
   { path: "register", element: <RegisterPage /> },
   { path: "login", element: <LoginPage /> },
+  { path: "admin", element: <AdminPage /> },
   { path: "*", element: <h1>404 Not found</h1> },
 ];
