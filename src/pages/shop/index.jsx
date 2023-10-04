@@ -1,18 +1,17 @@
 import { Card } from "../../components/Card";
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from "react";
 import { adsService } from "../../service/ads";
 import { UserContext } from "../../contexts/UserContext";
 import { userService } from "../../service/users";
 
 const { getAllAds } = adsService;
-const {getAllUsers} = userService;
-
+const { getAllUsers } = userService;
 
 export const ShopPage = () => {
-
-  
   const { user } = useContext(UserContext);
-  // const currentUsername = user.user_id;  
+  const [users, setUsers] = useState(null);
+
+  const currentUsername = user ? user.user_id : null;
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -26,17 +25,15 @@ export const ShopPage = () => {
   }, []);
 
   const findUserIdByUsername = (usernameToFind) => {
-    const user = data.find(u => u.username === usernameToFind);
+    const user = data.find((u) => u.username === usernameToFind);
     return user ? user.id : "User not found";
   };
-
 
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const result = await getAllAds();
@@ -77,7 +74,11 @@ export const ShopPage = () => {
         <div className="row">
           {adsToDisplay.map((character) => (
             <div className="col-lg-3 col-md-4 col-sm-6" key={character.id}>
-            {user && <Card character={character} user={findUserIdByUsername(character.username)} currentUsername={user.user_id} />}
+              <Card
+                character={character}
+                user={findUserIdByUsername(character.username)}
+                currentUsername={user?.user_id}
+              />
             </div>
           ))}
         </div>

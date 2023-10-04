@@ -4,8 +4,8 @@ import placeholderImage from "../assets/noPicture.png";
 import { axiosInstance } from "../service/api";
 
 export const Card = ({ character, user, currentUsername }) => {
-  // console.log("Props in Card:", { character, user, currentUsername });
-  const [image, setImage] = useState(null);  
+
+  const [image, setImage] = useState(null);
 
   const [isEditing, setIsEditing] = useState(false);
   const [editData, setEditData] = useState({
@@ -19,10 +19,15 @@ export const Card = ({ character, user, currentUsername }) => {
     // created: character.created,
     // last_updated:character/last_updated,
   });
+  const Cities = {
+    Podgorica: 1,
+    Nikšić: 2,
+    Berane: 3,
+  };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setImage(file);  
+    setImage(file);
   };
 
   const handleDelete = async () => {
@@ -37,17 +42,16 @@ export const Card = ({ character, user, currentUsername }) => {
   };
 
   const handleEdit = async () => {
-  
     try {
       const formData = new FormData();
       formData.append("image", image);
-  
-  
-      const response = await axiosInstance.put(`/ads/${character.id}/`, editData);
-      
-  
+
+      const response = await axiosInstance.put(
+        `/ads/${character.id}/`,
+        editData
+      );
+
       if (response.status === 200) {
-        console.log("Successfully edited the ad.");
         window.location.reload();
         setIsEditing(false);
       }
@@ -58,7 +62,7 @@ export const Card = ({ character, user, currentUsername }) => {
       }
     }
   };
-  
+
   return (
     <div className="card" style={{ minHeight: "590px" }}>
       {isEditing ? (
@@ -107,6 +111,7 @@ export const Card = ({ character, user, currentUsername }) => {
               <b>Date of Birth:</b>
             </p>
             <input
+              type="date"
               value={editData.pet_date_of_birth}
               onChange={(e) =>
                 setEditData({ ...editData, pet_date_of_birth: e.target.value })
@@ -119,6 +124,8 @@ export const Card = ({ character, user, currentUsername }) => {
               <b>Price:</b>
             </p>
             <input
+              type="number"
+              min="0"
               value={editData.price}
               onChange={(e) =>
                 setEditData({ ...editData, price: e.target.value })
@@ -130,12 +137,24 @@ export const Card = ({ character, user, currentUsername }) => {
             <p style={{ fontSize: "14px" }}>
               <b>City:</b>
             </p>
-            <input
-              value={editData.city}
+
+            <select
+              name="city"
               onChange={(e) =>
                 setEditData({ ...editData, city: e.target.value })
               }
-            />
+              defaultValue=""
+              required
+              className="input-ad"
+            >
+              <option value="" disabled hidden>
+                {" "}
+                {editData.city}{" "}
+              </option>
+              <option value="Podgorica">Podgorica</option>
+              <option value="Nikšić">Nikšić</option>
+              <option value="Berane">Berane</option>
+            </select>
           </div>
 
           <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -214,7 +233,7 @@ export const Card = ({ character, user, currentUsername }) => {
             </div>
           </div>
           {character.user.user_id === user?.user_id ? (
-            <div className="edit-but" style={{marginBottom:"3px"}}>
+            <div className="edit-but" style={{ marginBottom: "3px" }}>
               <button
                 onClick={() => setIsEditing(true)}
                 className="edit-button"

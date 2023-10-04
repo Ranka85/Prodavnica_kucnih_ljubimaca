@@ -17,10 +17,9 @@ export const PostNewAdPage = () => {
     image: "",
     pet_type: "",
     city: "",
-    pet_breed_name: "",
+    // pet_breed:"",
     user: user ? user.user_id : null,
 
-    // created: null,
   });
   useEffect(() => {
     if (user) {
@@ -85,8 +84,8 @@ export const PostNewAdPage = () => {
           description: "",
           pet_type: "",
           image: "",
+          pet_breed:"",
           city: "City",
-          pet_breed_name: "",
           user: user ? user.user_id : null,
         });
         setIsSuccess(false);
@@ -159,21 +158,19 @@ export const PostNewAdPage = () => {
             <option value="Fish">Fish</option>
             <option value="Rabbit">Rabbit</option>
           </select>
-          <input
-            style={{
-              border: errorFields.pet_breed_name  
-                ? "3px solid red"
-                : "1px solid black",
-            }}
-            className="input-ad"
-            type="text"
-            name="pet_breed_name"
-            placeholder="Pet Breed"
-            value={adData.pet_breed_name}
-            onChange={handleInputChange}
-            required
-          />
-
+          {/* <input 
+          style={{
+            // border: errorFields.pet_breed
+              ? "3px solid red"
+              : "1px solid black",
+          }}
+          className="input-ad"
+          // name="pet_breed"
+          placeholder="Pet Breed"
+          type="text"
+          // value={adData.pet_breed}
+          onChange={handleInputChange}
+           /> */}
 
           <p className="pet-date">pet date of birth:</p>
           <input
@@ -244,7 +241,6 @@ export const PostNewAdPage = () => {
             value={adData.price}
             onChange={handleInputChange}
           />
-
           <div className="ad-img-div">
             <p className="p-img">image of your pet</p>
             <input

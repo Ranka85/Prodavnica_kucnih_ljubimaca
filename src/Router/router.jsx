@@ -17,8 +17,10 @@ import { RabbitPage } from "../pages/categories/rabbit";
 import { PostNewAdPage } from "../pages/postNewAd";
 import { UsersPage } from "../pages/users";
 import { UserPets } from "../pages/userPets";
-import { AdminPage } from "../pages/admin";
-
+import { AdminAds } from "../pages/AdminAds";
+import { AdminLoginPage } from "../pages/AdminLoginPage";
+import { AdminPage } from "../pages/AdminPage";
+import { AdminLayout } from "../layout/AdminLayout"; 
 const ProtectedRoute = ({ element }) => {
   const { user } = useContext(UserContext);
 
@@ -27,6 +29,31 @@ const ProtectedRoute = ({ element }) => {
 
 export const appRoutes = [
   {
+    path: "admin",
+    element: <AdminLayout />, 
+    children: [
+      {
+        path: "", 
+        element: <AdminLoginPage />,
+      },
+      {
+        path: "adminPage",
+        element: <AdminPage />,
+      },
+      {
+        path: "ads", 
+        element:<AdminAds/>,
+      },
+      {
+        path: "*", 
+        element: <h1>404 Not found</h1>,
+      },
+    ],
+  },
+  
+
+  {
+    
     path: "",
     element: <AppLayout />,
     children: [
@@ -63,6 +90,10 @@ export const appRoutes = [
   },
   { path: "register", element: <RegisterPage /> },
   { path: "login", element: <LoginPage /> },
-  { path: "admin", element: <AdminPage /> },
+  // { path: "adminlog", element: <AdminLoginPage /> },
+
+  
   { path: "*", element: <h1>404 Not found</h1> },
+
+
 ];

@@ -9,7 +9,6 @@ export const UserProvider = ({ children }) => {
       ? jwtDecode(localStorage.getItem("access_token"))
       : null
   );
-
   const isUserLogedIn = () => {
     return localStorage.getItem("access_token") ? true : false;
   };
@@ -26,6 +25,10 @@ export const UserProvider = ({ children }) => {
     setUser(null);
   };
 
+  const handlerAdminLogout = () => {
+    localStorage.removeItem("adminToken");
+    setUser(null);
+  };
   return (
     <Provider value={{ user, handleUserLogin, handlerUserLogout }}>
       {children}
