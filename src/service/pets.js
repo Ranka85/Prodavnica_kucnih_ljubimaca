@@ -7,6 +7,7 @@ class PetService {
     });
     return response.data;
   };
+  
   getPetBreed = async (petType) => {
     const response = await axiosInstance.get(`pet_breeds/${petType}/`);
     return response.data;
