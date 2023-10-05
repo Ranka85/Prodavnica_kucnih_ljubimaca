@@ -1,1 +1,1 @@
-https://petselling.netlify.app/
+https://petselling.netlify.app/shop
